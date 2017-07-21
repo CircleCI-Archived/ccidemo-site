@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    
+    <link rel="preload" href="https://gohugo.io/files/muli-latin-200.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://gohugo.io/files/muli-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://gohugo.io/files/muli-latin-800.woff2" as="font" type="font/woff2" crossorigin>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     
+    <title>Hugo: A Fast and Flexible Website Generator  | len</title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+     <meta name="generator" content="Hugo 0.26-DEV" />
+
+      
+        <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+      
+
+     <link href='https://gohugo.io/dist/main.css' rel='stylesheet' type="text/css" /><meta property="og:title" content="len" />
+<meta property="og:description" content="Returns the length of a variable according to its type." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://gohugo.io/functions/len/" />
+
+
+
+<meta property="article:published_time" content="2017-02-01T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2017-04-18T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="len">
+<meta itemprop="description" content="Returns the length of a variable according to its type.">
+
+
+<meta itemprop="datePublished" content="2017-02-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-02-01T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="225">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image:src" content="https://gohugo.io/images/gohugoio-card.png"/>
+<meta name="twitter:title" content="len"/>
+<meta name="twitter:description" content="Returns the length of a variable according to its type."/>
+<meta name="twitter:site" content="@GoHugoIO"/>
+
+
+
+
+
+  </head>
+  <body class="ma0 sans-serif bg-primary-color-light">
+    
+<nav class="bg-primary-color-dark pv4 w-100" role="navigation">
+  <div class="center flex flex-wrap items-start justify-start mw9">
+  <h1 class="dim f3 lh-solid ml0-ns mr0 mr4-l mv0 pl3 pl4-ns">
+    <a href="https://gohugo.io/" class="link white">
+       HUGO
+    </a>
+  </h1>
+  <ul class="list ma0 pa0 dn dib-l">
+    
+      <li class="f5 dib mr4" role="menuitem">
+          
+        <a href="/news/" class="dim link light-silver">
+          News
+            
+          
+          
+        </a>
+      </li>
+    
+      <li class="f5 dib mr4" role="menuitem">
+          
+        <a href="/documentation/" class="dim link light-silver">
+          Docs
+            
+          
+          
+        </a>
+      </li>
+    
+      <li class="f5 dib mr4" role="menuitem">
+          
+        <a href="https://themes.gohugo.io/" class="dim link light-silver">
+          Themes
+            
+          
+          
+        </a>
+      </li>
+    
+      <li class="f5 dib mr4" role="menuitem">
+          
+        <a href="https://discourse.gohugo.io/" class="dim link light-silver">
+          Community
+            
+          
+          
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+          
+        </a>
+      </li>
+    
+      <li class="f5 dib mr4" role="menuitem">
+          
+        <a href="https://github.com/circleci/ccidemo" class="dim link light-silver">
+          GitHub
+            
+          
+          
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="10" height="10" viewBox="0 0 32 32" class="fill-current v-base" aria-label="External Link">
+<path d="M25.152 16.576v5.696q0 2.144-1.504 3.648t-3.648 1.504h-14.848q-2.144 0-3.648-1.504t-1.504-3.648v-14.848q0-2.112 1.504-3.616t3.648-1.536h12.576q0.224 0 0.384 0.16t0.16 0.416v1.152q0 0.256-0.16 0.416t-0.384 0.16h-12.576q-1.184 0-2.016 0.832t-0.864 2.016v14.848q0 1.184 0.864 2.016t2.016 0.864h14.848q1.184 0 2.016-0.864t0.832-2.016v-5.696q0-0.256 0.16-0.416t0.416-0.16h1.152q0.256 0 0.416 0.16t0.16 0.416zM32 1.152v9.12q0 0.48-0.352 0.8t-0.8 0.352-0.8-0.352l-3.136-3.136-11.648 11.648q-0.16 0.192-0.416 0.192t-0.384-0.192l-2.048-2.048q-0.192-0.16-0.192-0.384t0.192-0.416l11.648-11.648-3.136-3.136q-0.352-0.352-0.352-0.8t0.352-0.8 0.8-0.352h9.12q0.48 0 0.8 0.352t0.352 0.8z"></path>
+</svg>
+
+          
+        </a>
+      </li>
+    
+  </ul>
+
+  <div class="flex-auto-ns self-nd pl3 pr6-ns"><form class="mt3 mt0-ns self-start tr-ns" id="site-search-form" action="" role="search">
+  <fieldset class="bn ma0 pa0">
+    <label class="clip" for="email-address">Search</label>
+    <input type="search" id="search-input" class="needs-js bg-white-10 br2-ns bn f6 input-reset lh-solid mw-90 mw-100-l ph3 pv2 w5 white" placeholder="Search the Docs" type="text" name="email-address" value="">
+  </fieldset>
+</form>
+</div>
+
+  <span class="absolute pr3 mt3 mt4-l right-0 static-lTK top-0">
+
+  <a href="https://twitter.com/intent/follow?screen_name=GoHugoIO" title="Follow on Twitter" class="link-transition twitter link dib z-999 pt3 pt0-l mr2">
+    <svg height="32px" id="Layer_1" style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+  </a>
+
+</span>
+
+  </div>
+</nav>
+
+    
+    <main role="main" class="content-with-sidebar min-vh-100 pb7 pb0-ns">
+      
+  <article class="w-100 ph4 pb5 pb6-ns pt1 pt5-ns">
+    <div class="flex-l">
+
+      <div class="order-2 w-100 w-20-l ph5-m ph0-l mb4 sticky">
+<aside class="fixed-lTK mw5-l right-0 f6 bl-l b--moon-gray pv4 pv0-ns ph4-l nested-list-reset nested-links nested-copy-line-height">
+	
+
+	<div date-pref>
+		
+			<a href="https://gohugo.io/functions/last/" class="dib f6 pl1 hover-bg-light-gray br-100" title="last ">
+				<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+
+		
+			<a href="https://gohugo.io/functions/lower/" class="dib f6 pr1 hover-bg-light-gray br-100" title="lower">
+			<svg class="fill-current" height="30px" viewBox="0 0 24 24" width="30px" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+
+			</a>
+		
+	</div>
+
+<a target="_blank" class="tooltip right godoc-link" data-tooltip="See the related Godocs for len" href="https://golang.org/pkg/builtin/#len" >
+	</a></aside>
+</div>
+
+      <div class="order-1 w-60-l mw7 ph0 ph5-ns mid-gray nested-copy-line-height no-underline nested-links nested-img nested-copy-seperator nested-blockquote mt0-ns" style="flex-grow:1;">
+        <div class="documentation-copy center measure-wide-l">
+          <div id="readout" class="fixed right-0 bottom-0">
+          </div>
+          <header class="flex-none w-100">
+  
+    
+      <a href="/categories/functions" class="f6 fw8 mb0 link mid-gray dim mr3">
+        FUNCTIONS
+      </a>
+    
+  
+  <h1 class="lh-title mb3 mv0 pt3 primary-color-dark">len</h1>
+</header>
+
+<aside class="bt bw1 pt3 mt2 mid-gray b--mid-gray fn w-100">
+  
+    <div class="f4 fw4 lh-copy">
+      Returns the length of a variable according to its type.
+    </div>
+  
+
+  
+</aside>
+
+
+
+<div class="prose" id="prose">
+    <h2 class="minor mb1 pt4 primary-color-dark">Syntax</h2>
+      <pre class="f5 mb4 ph3 pv2 bg-light-gray" style="border-left:4px solid #0594CB;">len INPUT</pre>
+
+
+
+<p><code>len</code> is a built-in function in Golang that returns the length of a variable according to its type. From the Golang documentation:</p>
+
+<blockquote>
+<p>Array: the number of elements in v.</p>
+
+<p>Pointer to array: the number of elements in *v (even if v is nil).</p>
+
+<p>Slice, or map: the number of elements in v; if v is nil, len(v) is zero.</p>
+
+<p>String: the number of bytes in v.</p>
+
+<p>Channel: the number of elements queued (unread) in the channel buffer; if v is nil, len(v) is zero.</p>
+</blockquote>
+
+<p><code>len</code> is also considered a <a href="/templates/introduction/">fundamental function for Hugo templating</a>.</p>
+
+<h2 id="len-example-1-longer-headings"><code>len</code> Example 1: Longer Headings</h2>
+
+<p>You may want to append a class to a heading according to the length of the string therein. The following templating checks to see if the title&rsquo;s length is greater than 80 characters and, if so, adds a <code>long-title</code> class to the <code>&lt;h1&gt;</code>:</p>
+
+<div class="code relative bg-primary-color moon-gray" id="check-title-length.html"><div class="filename san-serif f6 dib lh-solid pl2 pv2">check-title-length.html</div>
+		<button class="needs-js copy bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+		</button>
+		
+	
+	<div class="code-copy-content nt3" ><pre><code class="language-html">&lt;header&gt;
+    &lt;h1{{if gt (len .Title) 80}} class=&quot;long-title&quot;{{end}}&gt;{{.Title}}&lt;/h1&gt;
+&lt;/header&gt;
+</code></pre>
+</div>
+
+</div>
+
+
+<h2 id="len-example-2-counting-pages-with-where"><code>len</code> Example 2: Counting Pages with <code>where</code></h2>
+
+<p>The following templating uses <a href="/functions/where/"><code>where</code></a> in conjunction with <code>len</code> to figure out the total number of content pages in a <code>posts</code> <a href="/content-management/sections/">section</a>:</p>
+
+<div class="code relative bg-primary-color moon-gray" id="how-many-posts.html"><div class="filename san-serif f6 dib lh-solid pl2 pv2">how-many-posts.html</div>
+		<button class="needs-js copy bg-accent-color-dark f6 absolute top-0 right-0 lh-solid hover-bg-primary-color-dark bn white ph3 pv2" title="Copy this code to your clipboard." data-clipboard-action="copy" aria-label="copy button">
+		</button>
+		
+	
+	<div class="code-copy-content nt3" ><pre><code class="language-html">{{ $posts := (where .Site.RegularPages &quot;Section&quot; &quot;==&quot; &quot;post&quot;) }}
+{{ $postCount := len $posts }}
+</code></pre>
+</div>
+
+</div>
+
+
+<p>Note the use of <code>.RegularPages</code>, a <a href="/variables/site/">site variable</a> that counts all regular content pages but not the <code>_index.md</code> pages used to add front matter and content to <a href="/templates/lists/">list templates</a>.</p>
+
+</div>
+
+        </div>
+      </div>
+      <div class="order-0 w-20 dn db-l">
+        
+<nav role="navigation">
+  <ul class="list pa0 nl2">
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".about-hugo">About Hugo</a>
+
+          
+            <ul class="about-hugo desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/about/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/about/features/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hugo Features
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/about/benefits/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    The Benefits of Static
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/about/roadmap/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Roadmap
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/about/license/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    License
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".getting-started">Getting Started</a>
+
+          
+            <ul class="getting-started desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Getting Started Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/quick-start/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Quick Start
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/installing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Install Hugo
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/usage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Basic Usage
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/directory-structure/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Directory Structure
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/getting-started/configuration/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Configuration
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".themes">Themes</a>
+
+          
+            <ul class="themes desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/themes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Themes Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/themes/installing-and-using-themes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Installing and Using Themes
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/themes/customizing/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Customizing a Theme
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/themes/creating/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Creating a Theme
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".content-management">Content Management</a>
+
+          
+            <ul class="content-management desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Content Management Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/organization/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Organization
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/formats/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Supported Content Formats
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/front-matter/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Front Matter
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/shortcodes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Shortcodes
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/sections/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Sections
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/types/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Types
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/archetypes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Archetypes
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/taxonomies/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Taxonomies
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/summaries/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Summaries
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/cross-references/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Cross References
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/urls/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    URL Management
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/menus/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Menus
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/toc/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Table of Contents
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/comments/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Comments
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/content-management/multilingual/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Multilingual and i18n
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".templates">Templates</a>
+
+          
+            <ul class="templates desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Templates Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/introduction/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Introduction
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/lookup-order/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Template Lookup Order
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/output-formats/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Custom Output Formats
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/base/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Base Templates and Blocks
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/lists/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    List Page Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/homepage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Homepage Template
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/section-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Section Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/taxonomy-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Taxonomy Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/single-page-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Single Page Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/views/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Content View Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/data-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Data Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/partials/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Partial Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/shortcode-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Shortcode Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/files/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Local File Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/404/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    404 Page
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/menu-templates/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Menu Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/pagination/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Pagination
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/rss/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    RSS Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/sitemap-template/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Sitemap Template
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/robots/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Robots.txt
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/internal/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Internal Templates
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/alternatives/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Alternative Templating
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/templates/template-debugging/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Template Debugging
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".functions">Functions</a>
+
+          
+            <ul class="functions desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Functions Quick Reference
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/adddate/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .AddDate
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/format/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .Format
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/get/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .Get
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/getpage/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .GetPage
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/param/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .Param
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/scratch/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .Scratch
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/unix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    .Unix
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/math/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Math
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/abslangurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    absLangURL
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/absurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    absURL
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/after/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    after
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/apply/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    apply
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/base64/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    base64
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/chomp/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    chomp
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/countrunes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    countrunes
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/countwords/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    countwords
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/dateformat/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    dateFormat
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/default/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    default
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/delimit/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    delimit
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/dict/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    dict
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/echoparam/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    echoParam
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/emojify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    emojify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/eq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    eq
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/findre/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    findRE
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/first/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    first
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/getenv/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    getenv
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/hasprefix/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    hasPrefix
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/highlight/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    highlight
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/htmlescape/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    htmlEscape
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/htmlunescape/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    htmlUnescape
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/humanize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    humanize
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/i18n/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    i18n
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/imageconfig/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    imageConfig
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/in/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    in
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/index-function/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    index
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/int/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    int
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/intersect/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    intersect
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/isset/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    isset
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/jsonify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    jsonify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/numfmt/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    lang.NumFmt
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/last/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    last
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/lower/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    lower
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/markdownify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    markdownify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/md5/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    md5
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/now/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    now
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/partialcached/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    partialCached
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/plainify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    plainify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/pluralize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    pluralize
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/printf/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    printf
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/querify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    querify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/range/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    range
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/readdir/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    readDir
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/readfile/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    readFile
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/ref/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    ref
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/rellangurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    relLangURL
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/relurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    relURL
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/relref/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    relref
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/render/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    render
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/replace/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    replace
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/replacere/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    replacere
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/safecss/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    safeCSS
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/safehtml/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    safeHTML
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/safehtmlattr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    safeHTMLAttr
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/safejs/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    safeJS
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/safeurl/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    safeURL
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/seq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    seq
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/sha/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    sha
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/shuffle/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    shuffle
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/singularize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    singularize
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/slice/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    slice
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/slicestr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    slicestr
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/sort/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    sort
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/split/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    split
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/string/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    string
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/substr/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    substr
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/time/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    time
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/title/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    title
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/trim/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    trim
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/truncate/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    truncate
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/union/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    union
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/uniq/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    uniq
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/upper/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    upper
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/urlize/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    urlize
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/where/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    where
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/functions/with/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    with
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".variables">Variables</a>
+
+          
+            <ul class="variables desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Variables Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/site/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Site Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/page/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Page Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/shortcodes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Shortcode Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/taxonomy/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Taxonomy Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/files/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    File Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/menus/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Menu Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/hugo/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hugo Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/git/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Git Variables
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/variables/sitemap/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Sitemap Variables
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".cli">CLI</a>
+
+          
+            <ul class="cli desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/commands/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    CLI Overview
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".troubleshooting">Troubleshooting</a>
+
+          
+            <ul class="troubleshooting desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/troubleshooting/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Troubleshooting
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/troubleshooting/accented-characters-in-urls/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Accented Characters in URLs
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/troubleshooting/eof-error/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    EOF Error
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".tools">Tools</a>
+
+          
+            <ul class="tools desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Developer Tools Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/migrations/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Migrations
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/syntax-highlighting/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Syntax Highlighting
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/starter-kits/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Starter Kits
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/frontends/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Frontends
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/editors/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Editor Plug-ins
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/search/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Search
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/tools/other/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Other Projects
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".hosting--deployment">Hosting &amp; Deployment</a>
+
+          
+            <ul class="hosting--deployment desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting &amp; Deployment Overview
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/hosting-on-netlify/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting on Netlify
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/hosting-on-firebase/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting on Firebase
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/hosting-on-github/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting on GitHub
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/hosting-on-gitlab/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting on GitLab
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/hosting-on-bitbucket/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Hosting on Bitbucket
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/deployment-with-wercker/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Deployment with Wercker
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/hosting-and-deployment/deployment-with-rsync/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Deployment with Rysnc
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+      
+      <li class="f5 w-100 hover-bg-light-gray hover-accent-color-light fw8 mb1 bb b--moon-gray">
+        <a href="javascript:void(0)" class="js-toggle dib w-100 link mid-gray hover-accent-color-light pl2 pr2 pv2 " data-target=".contribute">Contribute</a>
+
+          
+            <ul class="contribute desktopmenu animated fadeIn list pl0 bg-light-gray dn">
+              
+                <li  class="f6 fw4">
+                  <a href="/contribute/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Contributing to Hugo
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/contribute/development/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Development
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/contribute/documentation/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Documentation
+                  </a>
+                </li>
+              
+                <li  class="f6 fw4">
+                  <a href="/contribute/themes/" class="db link hover-bg-gray hover-white pl3 pr2 pv2 black ">
+                    Themes
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+    
+  </ul>
+</nav>
+
+      </div>
+
+    </div>
+  </article>
+
+  <div class="w-100 bg-light-gray">
+    <div class="mw7 pa4 center nested-lh-copy lh-copy">
+      <h6 class="f4 dark-gray mb2">
+  <a href="https://gohugo.io/functions/len/" class="hide-child link primary-color">
+  <span class="nl3 child"><svg class="grow" fill="" height="14px" viewBox="0 0 24 24" width="14px" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+</span>
+    “len”
+  </a> was last updated: April 18, 2017
+</h6>
+
+      <a href="https://github.com/circleci/ccidemoDocs/edit/master/content/functions/len.md" class="
+f6 ph3 pv1 br2 dib  tc ttu mv3 bg-primary-color white hover-bg-green link
+">Improve this page</a>
+
+      
+
+
+    </div>
+  </div>
+
+    </main>
+
+    <footer class="fixed relative-l bg-primary-color-dark bottom-0 w-100 pa3 pa4-l" role="contentinfo">
+  
+  
+    <div class="dn db-l flex-ns flex-wrap w-80 center mw9 justify-between">
+      <div class="w-third pv3 dn db-l">
+         <div class="mb3 gray tc nested-links">
+           By the <a href="https://github.com/gohugoio/hugo/contributors" class="link">Hugo Authors</a><br />
+         </div>
+          <div class="w4 center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" stroke-miterlimit="1.414" viewBox="0 0 1500 410" clip-rule="evenodd" stroke-linejoin="round" aria-label="Logo">
+  <path fill="#FF4088" d="M335.1 261.86V139.606c0-15.898-8.42-30.606-22.126-38.66-29.417-17.283-81.387-47.818-113.215-66.52-16.81-9.872-37.69-9.65-54.28.58-28.17 17.37-72.12 44.47-100.49 61.967-17.11 10.55-27.53 29.21-27.53 49.31v125.172c0 19.938 10.58 38.376 27.79 48.437l104.72 61.212c13.92 8.14 31.11 8.317 45.2.47 30.58-17.036 84.74-47.196 115.94-64.575 14.8-8.25 23.97-23.86 23.97-40.8v-14.34z"/>
+  <path fill="#C9177E" d="M173.24 13.676h.277l.247.003h1.414l.247.01h.03l.247.01h.027l.25.01h.02l.25.01h.03l.24.01h.03l.24.01h.02l.25.01h.03l.25.02h.03l.24.02h.02l.24.02h.03l.25.02h.02l.24.02h.03l.25.02h.03l.25.02h.03l.25.02h.03l.24.02h.03l.24.02h.03l.25.02h.03l.25.03h.03l.25.03h.02l.24.03h.03l.24.03h.03l.25.03h.03l.25.03h.02l.24.03h.03l.25.03h.03l.24.04.03.01.25.04h.03l.24.04h.02l.25.04h.03l.24.04h.03l.24.04h.02l.25.04h.03l.24.04.03.01.24.04.03.01.24.05h.03l.24.04h.03l.24.05h.03l.25.05h.02l.24.05h.03l.24.05h.02l.25.05.03.01.25.05h.02l.24.06.03.01.24.06h.03l.25.06.02.01.24.05.03.01.24.05.02.01.24.06h.03l.24.06.03.01.24.06.02.01.25.06.02.01.24.06.03.01.24.06h.02l.24.07h.03l.25.06.03.01.24.06h.03l.24.07.03.01.24.07.03.01.24.07.03.01.24.07.02.01.24.07.03.01.24.07.03.01.24.07.03.01.24.08.02.01.24.08h.03l.24.08h.03l.24.08.03.01.24.08.03.01.24.08.02.01.24.08.03.01.24.08.02.01.24.08.02.01.23.08.03.01.23.08.03.01.23.09.03.01.24.09.03.01.23.09.02.01.24.08.02.01.24.09.03.01.24.09.03.01.23.09.03.01.23.1.02.01.24.09.03.01.23.1.03.01.24.1.03.01.24.1.02.01.24.1.02.01.23.1.02.01.23.1.02.01.24.1.02.01.23.1.03.01.23.1.03.01.23.1.02.01.23.11.03.01.23.11.03.01.23.11.02.01.23.11.02.01.23.11.03.01.23.11.03.01.23.11.03.01.23.11.02.01.23.12.02.02.23.11.02.01.22.12.03.01.23.11.02.01.23.12.03.01.22.12.03.02.23.12.03.01.23.12.02.01.22.12.03.02.23.12.02.02.22.13.02.02.22.13.03.01.22.13.02.01.22.13.02.02.22.13.03.02.21.13h.02l113.3 66.57.19.11.02.02.19.11.03.01.18.12.02.02.18.11.02.02.18.11.02.01.18.11.02.01.18.11.02.01.18.11.03.01.18.12.02.01.18.12.03.01.18.11.02.01.18.12.02.02.18.12.02.02.17.11.03.01.18.12.02.01.18.12.02.01.17.12.02.01.17.12.02.01.17.12.02.02.17.12.02.01.17.13.03.02.17.12.02.01.17.12.02.01.17.12.02.02.17.12.02.01.17.12.02.02.17.12.02.02.17.13.03.02.16.13.03.02.17.13.03.01.17.13.02.02.17.13.02.02.16.13.03.02.17.14.03.03.32.26.04.03.32.27.04.03.33.27.04.03.33.27.04.03.32.27.04.04.32.27.04.03.31.28.04.03.31.28.04.03.31.29.04.03.3.28.04.03.31.29.04.04.3.29.04.04.3.29.04.04.29.29.04.04.29.3.04.04.29.3.03.04.29.3.04.04.28.3.04.04.28.3.04.04.28.3.04.04.28.31.04.04.27.32.03.04.28.31.04.04.27.32.04.04.27.32.03.04.27.32.04.04.26.32.03.04.26.32.04.04.26.33.03.04.25.33.03.04.25.33.03.04.25.33.03.05.25.34.03.04.25.33.03.05.24.34.03.04.24.34.03.04.24.34.03.05.23.34.03.05.23.35.03.05.22.34.03.04.22.34.03.04.23.35.03.04.22.35.03.05.21.35.03.05.22.35.03.05.21.35.03.05.21.36.03.04.2.36.03.05.2.36.03.05.2.36.03.05.2.36.02.05.2.37.02.05.19.37.02.05.19.37.03.04.18.38.02.05.19.37.02.05.18.37.03.05.17.38.02.05.17.38.02.05.17.38.02.05.17.38.02.05.16.38.02.05.16.38.02.05.15.39.02.05.15.38.02.05.15.39.02.05.15.39.02.05.15.39.02.05.14.39.02.05.13.39.02.05.13.39.02.05.13.39.02.05.13.4.01.05.12.39.02.05.12.4.01.05.12.4.02.05.12.4.02.05.11.4.02.05.11.4.01.05.1.4.02.06.11.41.01.05.1.41.02.05.09.41.02.05.1.41.01.06.09.41.01.05.09.41.01.05.08.41.01.05.08.41.01.05.08.41.01.05.07.42.01.05.07.41.01.06.07.42.01.06.06.42.01.06.06.41v.04l.03.22v.02l.02.21v.03l.03.21v.02l.03.21v.03l.03.21.01.03.03.21v.03l.02.21.01.02.02.21.01.03.02.21v.03l.02.21.01.03.02.21.01.03.02.21v.03l.02.21v.03l.02.21v.03l.02.21v.03l.02.21v.03l.01.21v.03l.01.22v.03l.02.22v.02l.01.21v.03l.01.21v.03l.01.21v.03l.01.21v.03l.01.22v.03l.01.21v.03l.01.21v.02l.01.21v139.6l-.01.23v.29l-.01.23v.03l-.01.22v.02l-.01.23v.03l-.01.22v.02l-.01.22v.03l-.01.22-.01.03-.01.22v.03l-.01.22v.02l-.01.23v.03l-.02.23v.02l-.02.23v.03l-.02.22v.03l-.01.22v.03l-.02.22v.03l-.02.22v.03l-.02.22v.03l-.02.22-.01.02-.02.23-.01.03-.02.22v.03l-.02.22-.01.03-.03.22v.03l-.03.22v.02l-.03.22v.03l-.03.22-.01.03-.03.23-.01.03-.03.22-.01.03-.03.22v.03l-.03.22v.03l-.03.22-.01.03-.03.22-.01.03-.04.22v.02l-.03.22v.02l-.04.22-.01.03-.03.22-.01.03-.03.22v.02l-.04.22v.02l-.04.22v.02l-.04.22v.03l-.04.21-.01.03-.04.21-.01.03-.04.22-.01.03-.05.22v.02l-.05.22v.02l-.04.21v.03l-.05.22v.02l-.04.22-.01.02-.05.21v.02l-.05.21v.03l-.05.21-.01.03-.05.21-.01.03-.05.21-.01.02-.05.21-.01.02-.05.21-.01.03-.06.21-.01.03-.05.21-.01.03-.06.21v.03l-.06.22-.01.03-.06.21v.03l-.06.21-.01.03-.06.21-.01.03-.06.22-.01.02-.06.21-.01.02-.06.21-.01.03-.07.21-.01.03-.06.21-.01.02-.06.21-.01.03-.06.21-.01.02-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.02-.07.21-.01.03-.07.21-.01.03-.07.21-.01.02-.07.21-.01.03-.07.21-.01.03-.08.2-.01.03-.07.2-.01.03-.07.2-.01.03-.07.21-.01.03-.08.21-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.02-.09.2-.01.03-.09.21-.01.03-.08.2-.01.03-.09.2-.01.03-.09.2-.01.03-.09.2-.01.02-.09.2-.01.03-.09.2-.01.02-.09.2-.01.02-.09.2-.01.02-.09.2-.01.02-.1.2-.01.02-.1.19-.01.03-.09.2-.01.02-.1.19-.01.03-.09.2-.01.02-.1.2-.01.03-.1.2-.01.02-.1.19-.01.02-.1.2-.01.03-.1.2-.01.03-.1.2-.02.03-.1.19-.01.02-.1.2-.01.03-.1.2-.01.03-.11.19-.02.02-.11.19-.01.02-.11.19-.01.02-.11.19-.01.02-.11.19-.01.02-.11.19-.01.03-.11.19-.01.02-.11.19-.01.03-.11.19-.02.02-.11.19-.02.02-.11.19-.01.02-.11.19-.01.03-.12.19-.01.02-.11.18-.01.03-.11.18-.02.02-.12.19-.01.03-.12.18-.02.02-.12.18-.01.02-.12.19-.02.03-.12.18-.02.02-.12.18-.01.02-.12.19-.01.02-.12.18-.02.02-.13.18-.01.02-.12.18-.01.02-.13.18-.01.02-.12.18-.02.02-.12.18-.02.02-.13.18-.02.02-.12.18-.01.02-.13.18-.02.03-.12.18-.02.02-.13.18-.02.02-.13.18-.02.02-.13.18-.02.02-.13.18-.01.02-.13.17-.02.02-.13.17-.01.02-.14.17-.02.02-.13.17-.01.02-.13.18-.02.02-.14.18-.02.02-.14.17-.02.02-.14.17-.01.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.01.02-.14.17-.02.02-.15.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.16-.02.02-.15.17-.02.02-.14.17-.02.02-.15.17-.02.02-.14.17-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.16.16-.02.02-.15.16-.02.02-.15.15-.02.02-.16.16-.03.02-.16.16-.02.02-.16.15-.02.02-.16.16-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.17.15-.02.01-.16.15-.02.02-.17.15-.02.02-.17.15-.02.01-.17.15-.02.02-.17.14-.03.02-.17.14-.02.02-.17.15-.02.02-.17.15-.02.02-.17.15-.02.02-.17.14-.02.02-.18.14-.02.01-.17.14-.02.02-.17.14-.03.02-.17.14-.02.02-.17.14-.02.02-.17.14-.02.02-.18.14-.02.02-.17.13-.02.02-.18.14-.02.02-.18.14-.02.02-.18.14-.02.02-.18.14-.02.01-.18.13-.02.01-.18.13-.02.01-.18.13-.03.01-.18.13-.02.02-.18.13-.02.02-.18.13-.02.02-.18.13-.03.02-.18.13-.02.01-.19.13-.03.01-.19.13-.02.02-.19.13-.02.02-.19.12-.02.02-.19.13-.02.02-.18.13-.03.02-.19.12-.02.01-.19.12-.03.01-.19.12-.02.02-.19.12-.02.02-.19.12-.02.01-.19.12-.03.01-.19.12-.02.02-.19.12-.03.01-.19.12-.03.02-.19.12-.03.02-.2.12-.02.02-.19.11-.03.01-.19.11-.02.02-.2.12-.03.02-.2.11-.02.02-.19.11-.03.01-.2.11-.03.01-.2.11-.02.01-.19.11-.01.01-115.93 64.6h-.01l-.18.11-.03.01-.19.11-.03.02-.19.1-.03.01-.19.1-.02.01-.19.1-.03.01-.19.1-.03.01-.19.1-.03.01-.19.1-.02.01-.19.1-.02.01-.19.09-.02.01-.2.1-.02.02-.19.1-.02.01-.19.09-.02.01-.19.09-.02.01-.19.1-.02.01-.2.09-.02.01-.19.09-.02.01-.2.09-.02.01-.19.09-.02.01-.19.09-.03.02-.2.09-.02.01-.2.08-.02.01-.2.09-.02.02-.2.09-.03.01-.19.08-.02.01-.2.09-.02.01-.2.08-.02.01-.2.08-.02.01-.2.08-.03.01-.2.08-.03.01-.2.08-.03.01-.19.08-.02.01-.2.07-.02.01-.2.08-.03.01-.2.08-.03.01-.2.08-.03.01-.2.07-.03.01-.2.08-.03.01-.2.07-.02.01-.2.07-.03.01-.2.07-.03.01-.2.07-.03.01-.2.07-.02.01-.2.07-.2.07-.03.01-.21.06-.03.01-.2.06-.02.01-.2.07-.02.01-.21.06-.03.01-.2.06-.03.01-.2.06-.03.01-.21.07-.04.01-.4.12-.05.02-.41.12-.05.01-.41.12-.05.01-.41.11-.05.02-.41.11-.05.01-.41.11-.06.01-.41.1-.05.01-.41.1-.06.01-.41.1-.05.01-.41.09-.05.01-.42.09-.06.01-.42.09-.05.01-.42.08-.05.01-.41.07-.05.01-.41.08-.05.01-.42.07-.05.01-.42.07-.05.01-.42.06-.05.01-.42.06-.05.01-.42.06-.05.01-.42.06-.06.01-.42.05-.05.01-.42.05-.05.01-.42.05-.42.04h-.05l-.42.03-.05.01-.42.03h-.05l-.42.03h-.05l-.42.03-.06.01-.42.03h-.05l-.42.02h-.05l-.42.02h-.06l-.42.01h-.05l-.42.01h-.05l-.42.01h-1.48l-.42-.01-.42-.01h-.06l-.42-.01H171l-.42-.02-.05-.01-.42-.02h-.05l-.42-.02-.05-.01-.42-.02h-.05l-.42-.03-.05-.01-.42-.04-.06-.01-.42-.04-.06-.01-.42-.04-.05-.01-.42-.04h-.05l-.42-.04-.05-.01-.42-.05h-.06l-.42-.05-.06-.01-.42-.06-.05-.01-.42-.06-.05-.01-.42-.06-.05-.01-.42-.06-.05-.01-.41-.07H163l-.42-.08-.054-.01-.41-.08-.05-.01-.41-.08-.05-.01-.41-.08-.06-.01-.416-.08-.05-.01-.41-.09-.06-.02-.41-.09-.05-.01-.41-.1-.056-.02-.41-.1-.05-.02-.41-.11-.05-.01-.41-.11-.05-.02-.41-.11-.05-.02-.41-.11-.05-.02-.41-.12-.06-.02-.41-.12-.05-.02-.41-.12-.05-.02-.41-.12-.05-.01-.398-.13-.04-.01-.21-.07h-.027l-.2-.06-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.09-.03-.01-.19-.09-.02-.01-.2-.09-.02-.01-.2-.09-.02-.01-.2-.08-.03-.01-.19-.09-.03-.01-.2-.09-.03-.01-.19-.09-.02-.02-.19-.09-.02-.01-.19-.09-.02-.01-.2-.09-.02-.02-.2-.1-.02-.02-.19-.09-.03-.01-.2-.09-.02-.02-.19-.1-.03-.01-.2-.1-.02-.01-.19-.1-.03-.01-.19-.1-.02-.01-.19-.1-.03-.02-.19-.1-.02-.01-.19-.1-.02-.01-.19-.1-.03-.02-.19-.1-.02-.01-.19-.11-.03-.02-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.11-.03-.01-.18-.11-.03-.01-.18-.11-.01-.01-104.8-61.17-.01-.01-.22-.13-.02-.01-.22-.13-.03-.01-.23-.13-.03-.01-.22-.14-.02-.01-.22-.14-.02-.02-.22-.14-.02-.02-.22-.14-.03-.01-.22-.13-.03-.02-.22-.14-.02-.02-.22-.14H36l-.22-.14-.03-.02-.22-.14-.02-.02-.22-.14-.028-.02-.22-.15-.03-.02-.22-.15-.02-.02-.22-.14-.02-.02-.22-.15-.02-.02-.22-.15-.02-.02-.21-.15-.03-.02-.215-.15-.02-.02-.21-.15-.025-.02-.21-.15-.027-.02-.21-.15-.02-.01-.21-.15-.02-.02-.207-.15-.02-.02-.206-.15-.03-.01-.21-.15-.02-.02-.21-.16-.02-.02-.21-.15-.026-.02-.21-.16-.026-.02-.2-.16-.02-.02-.2-.16-.02-.01-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.17-.02-.01-.2-.16-.02-.02-.194-.16-.02-.02-.2-.17-.02-.02-.2-.16-.02-.02-.2-.17-.02-.01-.196-.16-.02-.02-.19-.16-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.18-.02-.01-.19-.17-.03-.02-.185-.18-.02-.02-.19-.17-.02-.02-.186-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.19-.18-.02-.02-.19-.18-.02-.01-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.17-.18-.02-.02-.18-.18-.02-.02-.18-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.18-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.01-.02-.16-.19-.02-.02-.17-.19-.02-.02-.18-.2-.02-.02-.17-.19-.02-.02-.17-.2-.02-.02-.16-.19-.01-.02-.16-.19-.02-.02-.16-.2-.02-.02-.17-.2-.02-.02-.16-.19-.02-.02-.17-.19-.02-.02-.16-.19-.02-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.01-.02-.15-.2-.02-.02-.15-.2-.01-.02-.15-.2-.02-.02-.15-.21-.02-.02-.15-.2-.02-.02-.15-.2-.01-.02-.15-.21-.01-.02-.15-.21-.01-.02-.15-.2-.01-.02-.15-.2-.02-.02-.15-.21-.02-.02-.15-.21-.02-.03-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.01-.02-.14-.21-.02-.03-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.13-.21-.01-.02-.13-.21-.02-.03-.14-.21-.02-.03-.14-.21-.01-.02-.14-.22-.01-.03-.13-.21-.02-.02-.13-.21-.02-.02-.13-.22-.02-.03-.13-.21-.01-.02-.13-.22-.01-.02-.13-.21-.02-.03-.13-.22-.02-.03-.13-.22-.02-.03-.12-.22-.02-.02-.13-.22-.01-.02-.12-.22-.01-.02-.12-.22-.01-.03-.12-.22-.02-.03-.12-.22-.01-.03-.12-.23-.01-.02-.12-.22-.01-.03-.12-.22-.01-.03-.12-.22-.01-.03-.11-.23-.01-.02-.12-.23-.01-.03-.12-.23-.02-.02-.11-.23-.01-.02-.11-.22-.01-.03-.11-.23v.01l-.11-.23-.02-.03-.11-.23-.01-.03-.11-.22-.01-.03-.11-.23-.01-.02-.11-.23-.01-.02-.1-.23-.01-.02-.11-.23-.01-.02-.11-.23-.01-.02-.11-.23-.01-.03-.1-.23-.01-.02-.11-.23-.01-.03-.11-.23-.01-.02-.1-.23-.01-.02-.1-.23-.01-.03-.1-.23-.01-.02-.09-.23-.01-.02-.1-.23-.01-.03-.09-.24-.01-.02-.1-.23-.01-.03-.09-.22-.01-.03-.1-.24-.01-.02-.09-.24-.01-.03-.09-.24-.01-.02-.09-.24-.01-.03-.09-.24-.01-.02-.09-.24-.01-.02-.08-.24-.01-.03-.09-.24-.01-.02-.08-.24-.01-.03-.08-.24-.01-.03-.09-.24-.01-.03-.08-.24-.01-.02-.08-.24-.01-.02-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24L7 292l-.07-.24-.01-.02-.08-.25-.01-.03-.07-.25-.01-.03-.07-.24-.01-.03-.07-.24-.01-.03-.07-.25-.01-.03-.07-.25-.01-.02-.07-.25-.01-.01-.07-.25-.01-.02-.06-.24-.01-.02-.06-.24v-.02l-.07-.25v-.03l-.06-.24-.01-.03-.06-.24-.01-.03-.06-.25h.01l-.06-.25-.01-.02-.06-.25-.01-.02-.06-.25-.01-.02-.06-.25.01-.01-.06-.25-.01-.03-.06-.25-.01-.03-.05-.25-.01-.03-.06-.25-.01-.02-.05-.25-.01-.03-.05-.25-.01-.03-.05-.25-.05-.25v-.03l-.05-.26v-.03l-.05-.25-.01-.03-.06-.24v-.03l-.05-.27-.01-.03-.05-.26-.01-.03-.04-.25-.01-.03-.04-.25v-.03l-.04-.25v-.03l-.04-.25-.01-.03-.04-.25v.01l-.04-.25v-.02l-.04-.25v-.03l-.04-.25v-.03l-.04-.25v-.02l-.03-.26v-.03l-.03-.25v-.02l-.04-.26-.01-.03-.03-.25v-.03l-.03-.26-.01-.03-.03-.26v-.03l-.03-.26-.01-.03-.03-.26v-.03l-.03-.26-.01-.02-.03-.26-.02-.26v-.03l-.03-.26-.01-.03-.03-.26v-.03l-.02-.26-.01-.03-.02-.26v-.03l-.02-.26v-.03l-.02-.26-.02-.26v-.03l-.02-.26v-.03l-.02-.26v-.323l-.01-.26v-.03l-.01-.26v-.03l-.01-.26-.01-.03-.01-.26v-.28l-.01-.26v-.03l-.01-.26v-126.6l.01-.25v-.32l.01-.26v-.92l.01-.26v-.02l.01-.26v-.03l.01-.26v-.03l.01-.26v-.02l.01-.26v-.03l.01-.26v-.03l.02-.27v-.03l.02-.26v-.02l.01-.26v-.03l.02-.26v-.03l.01-.26v-.03l.01-.26v-.03l.02-.26v-.03l.02-.26v-.03l.03-.26v-.03l.02-.26.01-.02.02-.26v-.02l.03-.26v-.02l.03-.26.01-.03.03-.26v-.03l.03-.26v-.02l.03-.26v-.02l.03-.26.01-.03.03-.26v-.03l.03-.25v-.03l.03-.26v-.03l.03-.26.01-.03.03-.25v-.03l.04-.26v-.03l.03-.26.01-.03.03-.25.01-.03.04-.26.01-.02.04-.26v-.02l.04-.26v-.02l.04-.25.01-.03.04-.25v-.03l.07-.26.01-.03.04-.25v-.03l.05-.25v-.02l.05-.25v-.02l.05-.26.01-.02.05-.25.01-.02.05-.25.01-.03.05-.25.01-.03.05-.25v-.03l.05-.25v-.02l.05-.25.01-.02.05-.25.01-.02.06-.25v-.03l.06-.25.01-.03.05-.25.01-.03.06-.25v-.03l.06-.25.01-.03.06-.25v-.03l.06-.25.01-.02.06-.25v-.02l.06-.25.01-.03.07-.25v-.02l.07-.25v-.02l.07-.25.01-.03.07-.25v-.03l.07-.25.01-.03.07-.24.01-.02.07-.25.01-.025.07-.25.01-.03.07-.244.01-.02.08-.25.01-.02.07-.24.01-.02.07-.243.01-.02.07-.248.01-.03.08-.244.01-.03.08-.24v-.02l.08-.24v-.03l.08-.24.01-.02.08-.24.01-.03.08-.24.01-.03.08-.24.01-.03.08-.24.01-.02.09-.24.01-.02.08-.24.01-.025.08-.24.01-.02.09-.24.01-.02.09-.24v-.02l.09-.24.01-.02.09-.24.01-.03.09-.24.01-.02.09-.24.01-.03.1-.23.01-.02.1-.24.01-.02.1-.24.01-.03.1-.24.01-.03.1-.24.01-.03.1-.24.01-.03.1-.24.01-.03.1-.24.01-.025.1-.23.01-.03.1-.23.01-.03.1-.24.01-.02.11-.24.01-.02.11-.23.01-.02.1-.23.01-.03.11-.23.01-.02.11-.23.01-.02.11-.23.01-.02.11-.23.01-.03.11-.23.01-.02.11-.23.01-.03.11-.23.01-.02.11-.23.01-.02.11-.23.01-.02.11-.23.01-.02.12-.22.01-.02.12-.23.02-.03.12-.23.01-.02.12-.23.01-.03.12-.22.01-.02.12-.22.01-.02.12-.22.01-.03.12-.22.02-.02.12-.22.01-.03.12-.22.02-.02.12-.22.01-.02.12-.22.02-.03.13-.22.01-.02.12-.22.01-.02.13-.22.01-.02.13-.22.01-.02.13-.22.02-.02.13-.22.01-.02.13-.22.02-.02.13-.22.01-.02.13-.22.02-.02.13-.22.01-.02.14-.22.02-.03.14-.22.01-.02.13-.21.02-.02.14-.21.02-.02.13-.22.01-.02.14-.21.01-.02.14-.21.02-.02.14-.22.02-.02.14-.21.01-.03.14-.21.01-.02.14-.21.01-.02.15-.21.02-.02.14-.21.02-.02.15-.21.01-.02.15-.21.01-.02.15-.21.01-.02.15-.21.02-.02.15-.21.01-.02.15-.21.02-.02.15-.2.01-.02.15-.21.02-.02.15-.2.02-.02.15-.2.02-.02.15-.2.02-.02.15-.2.01-.02.15-.2.02-.02.16-.2.02-.02.16-.2.02-.02.16-.2.02-.02.16-.2.02-.02.16-.2.02-.03.16-.2.01-.02.16-.2.02-.02.16-.2.02-.02.16-.19.02-.02.16-.2.02-.02.16-.2.02-.02.17-.19.02-.02.16-.2.02-.02.16-.19.02-.02.16-.2.02-.02.17-.2.01-.02.17-.19.02-.02.17-.19.02-.02.17-.19.02-.02.17-.19.01-.02.17-.19.02-.02.17-.19.02-.02.17-.19.01-.02.17-.19.02-.02.18-.19.01-.02.18-.19.02-.02.19-.18.02-.02.18-.19.02-.02.18-.19.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.19-.18.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.18-.18.02-.02.19-.17.02-.02.19-.17.02-.02.19-.18.02-.02.19-.18.02-.01.19-.17.02-.01.19-.17.02-.02.19-.17.02-.02.19-.17.02-.02.19-.17.02-.01.2-.17.02-.02.2-.17.02-.02.2-.17.02-.02.2-.16.02-.02.2-.16.02-.02.19-.16.02-.02.2-.16.02-.02.2-.16.02-.01.2-.16.02-.02.2-.16.02-.02.2-.16.02-.02.21-.16.02-.02.2-.16.02-.02.21-.16.02-.02.21-.16.02-.02.2-.16.02-.01.21-.16.02-.02.2-.16.02-.02.21-.15.02-.02.21-.16.02-.02.21-.15.02-.01.21-.15.03-.02.21-.15.02-.01.21-.15.02-.02.21-.16.02-.01.22-.15.02-.02.21-.15.03-.01.21-.15.02-.01.21-.15.02-.01.22-.15.02-.02.21-.15.02-.01.22-.14.02-.01.21-.15.03-.02.22-.14.02-.02.22-.15.02-.02.22-.14.03-.01.22-.14.02-.02.22-.14.02-.01.22-.14.02-.01.22-.14.02-.01.22-.14.03-.01.22-.13h.01l100.51-62 .01-.01.21-.13.02-.01.22-.14.03-.02.22-.13.03-.02.22-.13.03-.02.22-.13.03-.01.23-.13.02-.02.22-.13.03-.01.22-.13.02-.01.23-.12.02-.02.23-.12.02-.02.22-.12.03-.01.23-.12.02-.02.22-.12.03-.02.22-.12.03-.02.22-.12.02-.02.23-.12.02-.01.22-.12.03-.01.22-.12.03-.01.23-.12.03-.01.23-.12.02-.01.23-.11.03-.01.23-.11.03-.01.22-.11.03-.01.23-.11.02-.01.23-.11.03-.01.23-.11.03-.02.23-.11.03-.01.23-.11.03-.01.23-.1.03-.01.23-.1.02-.02.23-.1.02-.01.23-.1.03-.02.23-.1.03-.01.23-.1.03-.01.23-.1.03-.01.23-.1.03-.01.23-.1.03-.01.23-.09.03-.01.23-.1.03-.01.24-.1.03-.01.24-.1.03-.02.23-.09.02-.01.24-.09.03-.01.23-.09.02-.01.24-.09.03-.01.24-.08.03-.01.24-.09.03-.01.24-.09.03-.01.24-.08.03-.01.24-.08.03-.01.23-.08.03-.01.24-.08.03-.01.23-.08.03-.01.24-.08.02-.01.24-.08.03-.01.24-.08.03-.01.24-.08.03-.01.24-.07.02-.01.24-.07.03-.01.24-.07h.03l.24-.07.03-.01.24-.07.02-.01.24-.07.02-.01.24-.07.03-.01.24-.07.03-.01.24-.07.03-.01.24-.06.03-.01.24-.06.02-.01.24-.07.024-.01.25-.06h.02l.24-.07h.03l.247-.06.03-.01.25-.06.03-.01.24-.06h.03l.25-.06h.03l.24-.06.03-.01.24-.05.03-.01.24-.06.03-.01.24-.05h.03l.24-.05.03-.01.24-.05h.02l.24-.05.03-.01.25-.05h.02l.25-.05.02-.01.25-.05.03-.01.25-.05.03-.01.25-.04h.03l.24-.04.03-.01.25-.05.03-.01.25-.04h.03l.24-.04.03-.01.25-.04.03-.01.24-.04h.02l.24-.04h.03l.25-.04.03-.01.25-.04h.03l.25-.04h.03l.25-.04h.03l.25-.03h.03l.24-.03h.03l.25-.03.03-.01.25-.03.02-.01.25-.02h.03l.24-.03h.03l.24-.03h.03l.25-.03h.03l.25-.03h.03l.24-.02h.03l.25-.03.03-.01.25-.02.03-.01.25-.02h.03l.246-.02h.03l.25-.02h.03l.25-.01.03-.01.25-.02.02-.01.25-.01h.03l.25-.02h.02l.25-.01h.03l.25-.01h.03l.25-.01h.03l.25-.01.03-.01.25-.01h.03l.25-.01h.03l.25-.01h.03l.25-.01h.03l.25-.01h.02l.25-.01h.31l.25-.01h.58zm-.23 27h-.164l-.164.002h-.163l-.17.004-.17.004-.17.005-.17.01-.17.01-.17.01-.16.01-.17.01-.16.01-.16.01-.16.01-.17.01-.16.01-.17.02-.17.02-.16.02-.17.02-.17.02-.17.02-.16.02-.17.02-.16.02-.16.02-.17.02-.16.02-.16.02-.16.02-.16.02-.17.02-.16.03-.16.02-.17.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.02-.17.03-.16.03-.17.03-.16.03-.16.03-.16.03-.16.04-.16.04-.16.04-.16.03-.16.03-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.05-.16.04-.16.05-.15.05-.16.05-.16.05-.16.05-.16.05-.16.05-.15.05-.16.05-.16.06-.16.05-.16.05-.16.06-.16.05-.16.05-.15.05-.16.06-.16.06-.16.06-.15.06-.16.06-.15.06-.15.06-.16.07-.16.06-.16.06-.16.06-.15.07-.15.06-.16.07-.15.07-.15.07-.15.07-.16.07-.15.07-.16.07-.15.07-.15.07-.15.07-.16.07-.15.07-.15.07-.15.08-.15.08-.15.07-.15.08-.15.07-.15.08-.15.08-.15.08-.15.08-.15.08-.15.09-.14.08-.15.08-.14.08-.15.09-.15.09-.15.09-.14.08-.15.09-.14.09-.15.09-.15.09-.16.1-100.4 61.88-.17.11-.16.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.1-.15.11-.14.1-.14.1-.15.1-.14.1-.14.1-.14.1-.14.1-.14.1-.14.1-.14.11-.14.1-.14.11-.14.11-.14.11-.14.11-.14.11-.14.11-.13.11-.14.11-.14.11-.13.11-.14.11-.14.11-.13.11-.14.11-.13.11-.13.11-.13.12-.13.12-.13.11-.13.11-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.13.12-.12.12-.13.12-.12.13-.13.12-.12.13-.12.12-.12.13-.12.12-.12.13-.12.13-.13.13-.12.12-.12.13-.12.13-.12.13-.11.13-.12.13-.12.13-.12.13-.12.14-.12.13-.11.13-.11.13-.12.14-.11.13-.12.13-.11.14-.11.13-.11.14-.11.14-.11.14-.11.14-.11.14-.11.14-.1.14-.11.14-.11.14-.11.14-.11.14-.1.14-.1.14-.1.14-.1.15-.1.14-.1.14-.1.15-.1.14-.1.14-.1.14-.1.14-.09.15-.1.15-.1.14-.1.15-.09.15-.09.14-.09.15-.09.15-.09.15-.09.15-.1.15-.1.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.15-.09.16-.09.15-.09.15-.09.16-.08.15-.08.16-.08.16-.08.16-.08.15-.08.15-.08.16-.08.15-.08.16-.07.15-.08.16-.08.16-.08.16-.08.16-.08.16-.07.16-.07.16-.07.16-.07.16-.07.16-.07.16-.07.16-.07.16-.07.16-.06.16-.07.16-.07.17-.07.16-.07.16-.07.16-.06.16-.07.17-.07.16-.06.16-.06.17-.06.16-.06.17-.06.16-.06.17-.06.17-.06.17-.05.17-.06.16-.06.17-.05.17-.05.16-.05.17-.06.17-.05.16-.05.16-.05.17-.06.17-.05.17-.05.16-.05.17-.05.17-.05.17-.05.17-.05.17-.04.17-.04.17-.05.17-.04.17-.05.17-.04.17-.04.17-.04.18-.04.17-.04.17-.04.17-.04.17-.04.17-.04.17-.03.17-.04.17-.03.17-.03.18-.03.18-.03.18-.03.18-.03.17-.03.17-.03.18-.03.18-.03.17-.03.17-.03.17-.03.18-.02.18-.02.18-.02.17-.03.18-.03.17-.02.18-.02.18-.02.18-.02.18-.02.18-.02.18-.02.17-.02.18-.02.18-.01.18-.02.18-.02.18-.01.18-.01.18-.01.18-.01.18-.01.18-.01.18-.01.18-.01.18-.01.18-.01.18v.18l-.01.18-.01.18v.18l-.01.18v126.8l.01.18v.54l.01.17.01.18.01.18.01.18.01.18.01.18.01.18.01.18.01.18.02.18.01.18.01.18.01.18.02.17.02.18.02.17.01.18.02.17.02.17.02.17.02.17.02.18.02.17.02.17.02.18.02.18.02.17.02.18.03.17.03.17.03.17.03.17.03.18.03.17.03.17.03.17.03.17.04.17.03.17.03.17.03.17.04.17.04.17.03.17.04.17.04.17.04.17.04.17.04.17.04.17.04.17.04.16.05.16.04.17.04.17.04.17.05.17.04.16.04.17.04.16.05.17.04.16.05.17.05.17.05.16.05.17.05.17.05.16.05.17.06.16.06.16.06.16.06.16.05.16.06.17.06.16.06.16.06.16.06.16.06.16.06.16.06.16.06.16.06.16.07.16.07.16.06.16.06.16.06.16.06.16.06.16.07.16.07.16.07.16.07.16.07.16.07.16.07.16.07.16.07.16.07.16.07.16.07.15.08.16.08.15.08.16.08.15.08.15.08.15.08.15.08.15.08.15.09.15.08.15.08.15.08.15.09.15.09.15.08.15.08.15.08.15.09.15.08.15.09.14.09.15.09.14.09.15.09.15.09.14.09.14.09.14.09.14.09.15.09.15.1.14.09.14.09.15.09.14.09.14.1.14.1.14.1.15.1.14.1.14.1.14.1.14.1.14.1.14.1.14.11.14.11.14.1.14.1.14.1.14.1.14.11.13.11.13.11.14.11.13.11.14.11.13.11.13.11.13.11.13.11.13.11.13.11.13.11.13.11.13.11.13.11.13.12.13.12.13.11.13.12.12.12.13.12.12.12.13.11.13.12.13.12.12.12.12.12.12.12.12.12.13.12.12.12.12.12.12.12.12.12.12.13.12.12.12.12.12.13.12.12.12.12.12.13.12.13.11.13.11.13.12.13.12.13.11.13.11.13.12.13.12.13.11.14.11.14.11.14.11.13.11.13.11.14.11.13.11.14.1.13.11.14.11.14.11.14.11.13.1.14.11.14.1.14.11.14.11.14.1.14.1.15.1.14.1.14.1.14.1.14.1.14.1.14.1.15.1.15.09.15.1.14.1.15.1.15.1.14.09.15.09.15.09.15.09.15.09.15.09.16.09.15.09.15.09.17.1 104.68 61.2.13.08.11.06.12.06.12.06.12.06.11.07.12.06.12.06.12.06.12.07.12.06.12.06.12.06.12.06.12.06.12.06.12.06.12.06.11.06.12.06.12.06.12.05.12.06.12.05.12.05.12.05.12.06.12.06.12.05.12.06.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.04.13.05.12.05.12.05.12.05.12.05.12.04.12.05.12.04.12.04.13.04.12.04.11.04.26.08.25.08.25.07.25.07.25.07.25.07.25.07.25.07.25.07.25.06.25.06.25.06.25.05.25.06.25.05.25.05.25.05.25.04.25.05.25.04.25.04.26.04.25.04.26.03.26.03.26.03.26.02.25.02.26.02.25.02.26.02.26.02.25.02.25.01.25.01.26.01h1.28l.26-.01h.26l.26-.01.26-.01.26-.02.26-.02.26-.01.26-.02.26-.02.26-.02.25-.02.26-.03.26-.03.25-.03.26-.03.25-.04.26-.04.25-.04.26-.04.25-.04.25-.05.25-.04.26-.05.25-.05.25-.06.25-.05.25-.06.25-.06.25-.06.25-.06.25-.07.25-.07.25-.07.25-.07.26-.08.12-.04.12-.04.12-.04.13-.04.12-.04.13-.04.12-.04.12-.04.13-.04.12-.04.12-.04.13-.05.12-.04.13-.04.12-.05.12-.04.12-.04.12-.04.13-.05.12-.04.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.06.12-.06.12-.05.12-.06.12-.06.12-.05.12-.06.12-.06.12-.06.11-.06.12-.06.12-.06.12-.06.12-.06.12-.06.12-.06.12-.06.12-.06.11-.06.12-.06.12-.06.13-.07 115.97-64.63.14-.07.13-.07.12-.07.12-.07.12-.07.12-.08.13-.07.12-.07.12-.07.12-.07.12-.08.12-.08.12-.07.12-.07.12-.07.12-.08.12-.08.12-.07.12-.08.12-.07.11-.08.11-.08.11-.08.11-.08.11-.08.12-.08.11-.08.12-.08.11-.08.11-.08.11-.08.11-.08.11-.08.12-.08.11-.09.11-.08.11-.09.11-.08.11-.09.11-.09.11-.09.11-.08.11-.08.11-.09.1-.09.11-.09.11-.09.1-.08.11-.09.11-.1.1-.09.11-.09.1-.09.1-.09.1-.1.11-.09.1-.1.1-.09.1-.1.1-.1.1-.09.1-.1.1-.09.1-.1.1-.1.1-.1.1-.1.09-.1.1-.1.09-.1.1-.1.1-.1.1-.1.09-.1.09-.1.09-.1.09-.1.1-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.11.09-.11.09-.11.09-.1.09-.1.09-.1.09-.11.09-.1.09-.11.08-.1.08-.11.08-.11.08-.1.09-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.07-.11.07-.12.08-.12.08-.11.07-.11.07-.11.08-.12.08-.11.07-.11.07-.12.07-.12.07-.12.07-.12.07-.11.07-.12.07-.12.07-.11.07-.12.07-.12.07-.12.06-.12.06-.12.07-.12.07-.12.06-.12.07-.12.07-.12.06-.12.06-.12.06-.13.06-.12.07-.12.07-.12.06-.12.06-.12.06-.12.06-.13.06-.12.06-.12.06-.13.06-.12.06-.12.06-.13.06-.13.06-.13.06-.12.05-.12.05-.13.05-.13.05-.13.05-.12.05-.13.05-.13.05-.13.05-.12.05-.13.05-.13.05-.13.05-.13.05-.13.04-.13.04-.13.04-.13.04-.13.05-.13.05-.13.05-.13.05-.13.04-.13.05-.13.04-.13.04-.13.05-.13.04-.13.04-.13.04-.13.04-.13.03-.13.04-.13.04-.13.04-.13.04-.13.03-.13.03-.14.04-.13.03-.13.03-.14.04-.13.03-.13.03-.13.03-.13.03-.14.03-.13.03-.13.02-.14.03-.14.03-.13.02-.14.03-.13.03-.14.03-.14.03-.13.03-.14.02-.14.03-.14.02-.13.03-.13.02-.14.02-.14.02-.14.02-.14.02-.14.02-.14.02-.14.01-.14.02-.13.01-.14.02-.14.02-.13.02-.14.01-.14.01-.14.01-.14.01-.14.02-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14v-.28l.01-.14V138.8l-.01-.123-.01-.13v-.13l-.01-.13v-.13l-.01-.13v-.13l-.01-.13-.01-.12-.01-.13-.01-.13-.01-.13-.01-.12-.01-.13-.01-.12-.01-.13-.02-.13-.01-.12-.01-.12-.02-.12-.01-.12-.02-.13-.01-.12-.02-.12-.02-.13-.01-.13-.01-.12-.02-.11-.04-.263-.03-.255-.04-.26-.04-.25-.05-.25-.05-.25-.04-.25-.05-.25-.06-.25-.06-.25-.06-.25-.06-.25-.06-.25-.06-.25-.06-.25-.07-.25-.07-.25-.07-.25-.08-.25-.07-.24-.08-.24-.08-.24-.08-.24-.08-.24-.09-.24-.09-.24-.09-.23-.09-.24-.09-.24-.09-.24-.1-.23-.09-.24-.1-.23-.1-.23-.1-.23-.11-.23-.1-.23-.11-.23-.11-.23-.11-.22-.12-.23-.11-.23-.12-.23-.12-.22-.12-.22-.12-.22-.12-.22-.12-.22-.13-.22-.13-.22-.13-.22-.14-.22-.13-.21-.13-.21-.14-.21-.14-.21-.14-.21-.14-.21-.14-.21-.14-.21-.15-.2-.15-.2-.15-.2-.15-.2-.15-.2-.16-.2-.16-.2-.16-.2-.16-.2-.16-.19-.17-.19-.16-.19-.17-.19-.17-.19-.17-.19-.17-.19-.17-.19-.18-.18-.18-.18-.18-.18-.18-.18-.18-.18-.19-.18-.19-.18-.19-.17-.19-.17-.19-.17-.19-.17-.19-.17-.2-.17-.2-.16-.2-.16-.19-.16-.21-.17-.09-.07-.1-.08-.1-.08-.1-.08-.1-.08-.1-.07-.1-.08-.1-.08-.11-.08-.11-.08-.1-.08-.1-.08-.1-.08-.1-.07-.1-.08-.11-.08-.1-.07-.1-.07-.11-.08-.11-.07-.11-.07-.1-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.06-.11-.06-.13-.07L193 46.09l-.16-.098-.145-.08-.15-.09-.15-.09-.147-.083-.15-.08-.145-.08-.15-.08-.15-.08-.15-.08-.147-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.153-.07-.15-.08-.15-.07-.15-.07-.15-.08-.155-.07-.15-.07-.15-.07-.156-.07-.15-.07-.15-.06-.155-.07-.152-.07-.15-.07-.155-.06-.15-.06-.16-.06-.154-.07-.158-.06-.16-.07-.16-.06-.155-.06-.155-.06-.157-.06-.16-.06-.16-.06-.15-.06-.15-.05-.15-.05-.16-.06-.16-.05-.15-.05-.16-.05-.16-.05-.15-.05-.16-.05-.16-.05-.16-.05-.15-.05-.16-.05-.16-.05-.16-.05-.16-.04-.16-.05-.16-.04-.16-.05-.16-.04-.16-.04-.16-.04-.16-.05-.16-.04-.16-.04-.16-.03-.16-.04-.16-.04-.16-.04-.16-.03-.16-.04-.16-.03-.16-.03-.16-.04-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.17-.03-.16-.02-.16-.02-.16-.02-.16-.02-.16-.03-.16-.03-.16-.02-.17-.03-.16-.02-.16-.03-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.17-.02-.16-.01-.16-.02-.16-.02-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01-.17-.01-.17-.01-.16-.01-.16-.01h-.16l-.16-.01-.16-.01h-.17l-.16-.01-.16-.01-.15-.01-.16-.01h-.33l-.16-.01h-.32z"/>
+  <path fill="#fff" fill-rule="nonzero" d="M96.91 309.916v-207.22h43.354v75.48h71.916v-75.48h43.48v207.22h-43.48V219.31h-71.916v90.606H96.91z"/>
+  <path fill="#0594CB" d="M715.9 259.25V136.59c0-15.645-8.285-30.12-21.774-38.046L580.56 31.818c-16.805-9.873-37.69-9.65-54.28.58l-96.142 59.286c-19.81 12.215-31.87 33.823-31.87 57.095v120.06c0 19.93 10.58 38.37 27.792 48.43l104.718 61.21c13.925 8.14 31.113 8.31 45.204.47l115.945-64.58c14.798-8.25 23.973-23.86 23.973-40.8v-14.34z"/>
+  <path fill="#0083C0" d="M554.04 11.067h.278l.247.003h.027l.25.003h.027l.25.004h.02l.25.006h.03l.24.007h.03l.24.008h.03l.25.01h.03l.25.01h.03l.25.01.02.002.25.01.02.003.25.013h.03l.25.014.02.002.25.014h.02l.25.017.02.002.25.017h.03l.25.02h.02l.24.02.03.003.25.018.03.003.25.02.03.003.24.02h.02l.25.02h.03l.25.02h.03l.25.02h.03l.24.02h.02l.25.03h.03l.24.03h.03l.25.03h.03l.25.03h.03l.25.03h.03l.24.03h.02l.24.03h.03l.24.03h.03l.24.03h.03l.25.03h.02l.25.03h.03l.25.04h.03l.24.04h.02l.25.04h.03l.24.04h.03l.25.04h.03l.25.04h.03l.24.05h.02l.25.05h.03l.24.04h.03l.24.05.03.01.25.05.03.01.25.05.03.01.24.05h.02l.24.05h.02l.25.05h.03l.24.05h.03l.24.06h.03l.24.06.02.01.24.06.03.01.24.06h.03l.24.06.02.01.24.06.02.01.24.07h.03l.24.06.03.01.24.06h.03l.24.06h.02l.24.06.03.01.24.06.03.01.24.07.02.01.24.07h.03l.24.07.03.01.24.07.02.01.24.07.03.01.24.07.03.01.24.07.03.01.24.07.03.01.24.07.02.01.24.08.02.01.24.08h.03l.24.08.03.01.24.08.02.01.24.08.02.01.24.08.03.01.24.08.03.01.24.08.03.01.24.08.02.01.24.08.03.01.24.09.03.01.24.09.03.01.23.09.03.01.24.09.03.01.23.09.03.01.24.09.03.01.23.1.03.01.23.1.03.01.23.1.02.01.24.09.02.01.23.1.03.01.24.1.02.01.23.1.02.01.23.1.03.01.24.1.03.01.23.1.02.01.23.11.03.01.23.1.02.01.23.11.02.01.23.11.03.01.24.1.02.02.23.11.02.01.23.11.02.01.23.11.03.01.23.11.03.01.23.11.02.01.23.11.03.01.22.12.02.02.23.12.03.01.23.12.02.01.23.12.03.01.23.12.03.02.22.12.03.01.23.12.02.01.22.12.02.01.23.12.02.01.22.12.03.01.22.13.02.01.22.13.02.02.22.13.02.02.22.13.03.02.23.13 113.7 66.88.18.11.03.01.18.11.03.02.18.11.02.02.18.11.02.01.18.11.02.02.18.11.02.02.18.11.02.01.17.11.02.01.18.11.02.01.17.11.02.01.17.11.02.01.17.12.03.01.17.12.02.01.18.12.03.02.34.23.05.03.35.24.05.03.34.24.04.03.34.24.05.03.34.24.05.03.33.25.04.03.33.25.04.03.33.25.04.03.33.25.04.04.33.26.04.04.32.26.04.03.32.26.04.03.32.26.04.04.32.27.04.03.32.27.04.03.31.27.04.03.31.27.04.03.31.27.04.03.3.28.04.03.3.28.04.04.3.28.04.04.29.28.04.04.3.29.04.04.29.29.04.04.29.29.04.04.29.29.03.04.29.3.04.04.28.3.04.04.28.3.04.04.28.3.04.04.28.31.03.04.27.31.03.04.27.31.04.04.27.31.03.04.26.31.03.04.27.31.04.04.26.31.03.05.26.32.03.04.25.32.03.05.25.32.03.04.25.33.03.04.24.33.04.04.24.33.03.04.24.33.03.04.24.33.03.04.23.34.03.05.23.34.03.05.23.34.03.04.23.34.03.05.22.34.03.05.22.34.03.05.22.35.03.05.22.35.03.05.21.34.03.05.21.35.02.05.21.35.03.04.2.35.03.05.21.36.03.05.2.36.03.04.19.36.02.05.2.36.02.05.19.36.03.05.18.36.02.05.19.37.02.04.18.37.02.05.18.37.02.05.17.37.02.05.18.37.02.05.17.37.03.05.16.37.02.05.16.38.02.05.16.38.03.05.16.38.02.05.16.38.02.05.15.38.02.05.15.38.02.05.14.38.02.05.14.38.02.05.14.39.02.05.13.39.02.05.13.39.02.05.13.39.02.05.13.39.02.05.12.39.01.05.12.39.02.05.12.39.01.05.11.4.02.05.11.39.02.05.11.4.02.05.1.4.01.05.1.4.01.05.1.4.01.05.1.4.01.06.09.4.02.05.09.41.01.05.09.4.01.05.09.41.01.05.08.41.01.05.08.41.01.06.07.41v.06l.07.41.01.05.06.41.01.06.06.41.01.06.06.41.01.05.06.41.01.06.05.42.01.06.05.41v.06l.05.41.01.05.04.42.01.05.04.42v.06l.04.42.01.05.03.41.01.06.03.42v.06l.02.41v.04l.01.21v.02l.01.21v.03l.01.21v.03l.01.21v.03l.01.21v.03l.01.21v.27l.01.21v139.28l-.01.22v.02l-.01.22v.28l-.01.22v.03l-.01.23v.02l-.01.22v.03l-.01.22v.03l-.01.22-.01.03-.01.22v.03l-.01.23v.03l-.01.22v.03l-.02.22-.01.03-.02.23v.03l-.01.23v.03l-.02.23v.03l-.01.22v.03l-.02.23v.03l-.02.22-.01.03-.02.22v.03l-.02.23v.02l-.02.22-.01.03-.02.22-.01.03-.02.22v.03l-.03.23v.03l-.03.22v.03l-.03.22v.03l-.03.22-.01.03-.03.22-.01.03-.03.22-.01.03-.03.22v.03l-.03.22v.03l-.03.22v.02l-.03.22v.03l-.03.22v.03l-.03.22-.01.03-.03.22-.01.03-.04.22v.02l-.04.22v.03l-.03.22v.02l-.04.22-.01.03-.04.22v.03l-.04.22-.01.03-.04.21-.01.03-.05.22v.03l-.05.22-.01.02-.04.22-.01.03-.04.21-.01.03-.05.22-.01.02-.05.22v.03l-.05.22v.02l-.05.22-.01.03-.05.21-.01.02-.05.22-.01.03-.05.22-.01.03-.06.21-.01.03-.05.21-.01.02-.05.22v.03l-.06.22-.01.03-.05.21-.01.03-.06.21v.03l-.06.21-.01.03-.06.21v.03l-.06.21v.03l-.06.21-.01.03-.06.21-.01.03-.06.21-.01.02-.06.21-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.02-.07.21-.01.03-.07.21-.01.03-.07.21-.01.02-.07.21-.01.02-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.08.21-.01.03-.07.21-.01.03-.07.21-.01.02-.08.21-.01.02-.08.21-.01.03-.08.2-.01.03-.08.21-.01.02-.08.2-.01.03-.08.21-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.08.2-.01.03-.09.21-.01.03-.09.2-.01.03-.09.2-.01.02-.09.2-.01.03-.09.2-.01.03-.09.2-.01.02-.09.2-.01.02-.09.2-.02.03-.09.2-.01.02-.1.19-.01.03-.09.2-.02.02-.09.2-.01.02-.1.2-.01.02-.09.19-.01.02-.1.2-.02.03-.1.19-.01.03-.1.19-.01.02-.1.2-.01.02-.1.19-.01.02-.1.2-.01.03-.1.19-.02.03-.11.19-.01.02-.11.2-.01.02-.1.19-.01.03-.11.19-.01.02-.1.2-.01.02-.11.19-.01.03-.11.19-.02.03-.1.19-.02.03-.11.19-.02.02-.11.19-.01.02-.11.19-.02.02-.11.19-.02.02-.11.19-.01.03-.11.19-.01.02-.11.19-.01.02-.11.19-.01.03-.12.19-.02.02-.12.19-.02.02-.12.18-.02.03-.12.19-.02.03-.11.18-.01.02-.12.19-.01.02-.12.18-.02.02-.12.18-.01.03-.12.18-.01.03-.12.18-.01.02-.12.18-.01.02-.12.18-.01.02-.12.18-.01.03-.13.18-.02.02-.12.18-.02.02-.12.18-.02.03-.13.18-.02.02-.13.18-.01.02-.13.18-.02.02-.13.18-.01.02-.13.18-.01.02-.13.18-.02.02-.14.17-.02.02-.13.18-.02.02-.13.17-.02.02-.13.18-.02.02-.14.18-.02.02-.13.17-.02.02-.13.17-.02.02-.13.17-.02.02-.14.17-.02.02-.14.17-.01.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.01.02-.14.17-.02.02-.14.17-.01.02-.14.17-.01.02-.14.17-.02.02-.15.17-.02.02-.15.16-.01.02-.15.16-.02.02-.14.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.16.16-.02.02-.15.16-.02.02-.15.16-.01.02-.16.16-.02.02-.15.16-.02.02-.15.16-.02.02-.16.16-.02.02-.16.15-.02.02-.16.15-.02.02-.16.16-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.17.16-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.17.15-.02.02-.17.15-.02.02-.17.14-.02.02-.17.15-.02.01-.17.14-.02.02-.17.15-.02.02-.17.14-.02.02-.17.14-.02.02-.17.14-.02.02-.17.15-.02.01-.17.14-.02.02-.17.14-.02.02-.17.14-.02.02-.17.14-.02.02-.17.14-.02.01-.17.14-.02.02-.17.14-.02.02-.18.14-.03.02-.18.14-.03.02-.18.14-.02.02-.17.14-.03.01-.18.14-.02.01-.18.14-.03.02-.18.13-.02.02-.18.13-.02.01-.18.13-.02.01-.18.13-.03.01-.18.14-.03.01-.18.13-.03.01-.18.13-.02.02-.19.13-.02.01-.19.13-.03.02-.19.12-.02.02-.18.13-.02.02-.18.12-.02.02-.19.12-.02.02-.18.12-.02.01-.19.13-.03.02-.19.12-.02.01-.19.12-.02.01-.19.12-.03.01-.19.12-.02.01-.19.12-.03.02-.19.12-.02.02-.19.11-.02.02-.19.12-.02.01-.19.12-.02.01-.19.12-.02.01-.19.12-.03.02-.2.12-.02.01-.19.12-.02.01-.2.12-.02.02-.2.11-.03.01-.2.12-.02.01-.19.11-.02.01-115.97 64.59-.01.01-.18.1-.02.01-.19.1-.03.01-.19.1-.02.02-.19.11-.03.01-.19.11-.02.02-.19.1-.03.02-.19.1-.02.01-.2.1-.02.01-.19.1-.02.01-.19.09-.02.02-.2.09-.03.01-.19.1-.02.01-.2.1-.02.01-.19.09-.03.02-.2.09-.02.01-.19.09-.03.01-.2.09-.03.01-.19.09-.02.01-.2.09-.02.01-.2.09-.03.01-.2.09-.03.01-.19.09-.02.01-.19.09-.02.01-.2.09-.02.01-.19.08-.03.01-.2.09-.03.01-.2.09-.02.01-.2.08-.03.01-.2.08-.02.01-.2.08-.03.01-.2.08-.02.01-.2.08-.02.01-.2.08-.03.01-.2.07-.02.01-.19.08-.02.01-.2.08-.02.01-.2.07-.03.01-.2.07-.03.01-.2.08-.02.01-.2.07-.03.01-.2.08-.02.01-.2.07-.02.01-.2.07-.02.01-.2.07-.03.01-.2.06-.02.01-.2.07-.03.01-.2.07-.03.01-.2.07-.03.01-.2.07-.03.01-.21.06-.03.01-.21.07h-.02l-.21.06-.04.01-.4.12-.05.01-.41.12-.06.01-.4.11-.06.01-.41.11-.05.02-.41.11-.05.01-.41.1-.05.01-.41.1-.06.02-.41.1-.06.01-.41.1-.06.01-.41.09-.05.01-.41.09-.05.01-.41.09-.05.01-.42.08-.05.01-.41.07-.05.01-.42.08-.05.01-.42.07-.05.01-.42.07-.05.01-.41.06h-.06l-.41.06-.05.01-.41.06h-.05l-.41.06-.05.01-.42.05-.05.01-.42.05-.05.01-.42.05h-.05l-.42.04-.06.01-.42.04h-.05l-.42.04h-.05l-.42.03-.05.01-.42.02-.06.01-.42.02h-.06l-.42.02-.05.005-.42.02h.01l-.42.01h-.05l-.42.02-.42.004h-.06l-.42.01h-1l-.42-.01h-.06l-.42-.01h-.05l-.42-.013-.05-.01-.42-.01h-.05l-.42-.02h-.05l-.42-.02-.05-.01-.42-.03h-.05l-.42-.03h-.05l-.42-.03-.05-.01-.42-.04h-.05l-.42-.04-.05-.01-.42-.05-.05-.01-.42-.05-.05-.01-.41-.05h-.05l-.42-.05h-.05l-.42-.06-.05-.01-.42-.06-.05-.01-.41-.06-.05-.01-.41-.06-.05-.01-.42-.07-.05-.01-.42-.07-.05-.01-.41-.08-.05-.01-.41-.08-.05-.01-.41-.08-.06-.01-.41-.08-.05-.01-.41-.09-.05-.01-.42-.09-.05-.01-.41-.1-.05-.01-.41-.1-.06-.01-.41-.1-.06-.01-.41-.1-.05-.02-.41-.11-.05-.01-.41-.11-.05-.02-.41-.12-.05-.01-.4-.12-.06-.01-.4-.12-.05-.01-.4-.13-.05-.01-.39-.13-.03-.01-.21-.07-.02-.01-.2-.06-.02-.01-.2-.07-.02-.01-.2-.06-.03-.01-.2-.07-.02-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.08-.03-.01-.2-.07-.02-.01-.2-.07-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.09-.03-.01-.2-.08-.03-.01-.2-.08-.02-.02-.2-.08-.03-.01-.19-.08-.03-.01-.19-.08-.02-.01-.19-.09-.03-.01-.2-.09-.03-.01-.2-.09-.03-.01-.19-.09-.026-.01-.2-.09-.02-.01-.19-.09-.02-.01-.2-.09-.03-.02-.19-.09-.03-.01-.2-.09-.02-.01-.19-.1-.03-.02-.19-.09-.02-.01-.2-.1-.02-.02-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.02-.19-.1-.02-.01-.19-.1-.02-.01-.19-.1-.02-.01-.19-.11-.03-.02-.19-.1-.02-.01-.19-.1-.03-.02-.19-.11-.03-.02-.19-.11-.02-.02-.19-.1-.03-.01-.19-.11-.02-.01-.19-.11-.02-.01-.19-.11-.03-.02-.18-.11-.01-.01-104.78-61.2-.02-.01-.22-.13-.03-.02-.23-.14-.02-.01-.22-.13-.02-.02-.22-.14-.02-.01-.22-.13-.02-.01-.23-.14-.02-.01-.22-.13-.02-.01-.22-.14-.02-.01-.22-.14-.02-.01-.22-.14-.02-.02-.22-.14-.02-.01-.22-.15-.02-.01-.21-.14-.02-.02-.22-.15-.03-.02-.21-.14-.02-.01-.22-.15-.02-.02-.22-.14-.02-.02-.21-.14-.02-.01-.22-.15-.02-.02-.21-.15-.02-.02-.21-.15-.02-.01-.21-.15-.03-.02-.21-.15-.02-.02-.21-.15-.03-.02-.21-.16-.02-.02-.21-.15-.02-.02-.21-.16-.02-.02-.21-.15-.02-.02-.2-.16-.02-.02-.21-.16-.02-.02-.21-.16-.02-.02-.21-.16-.02-.02-.2-.16-.03-.01-.2-.16-.03-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.17-.02-.02-.2-.16-.02-.02-.2-.17-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.197-.17-.02-.02-.2-.16-.02-.02-.2-.17-.02-.02-.2-.16-.02-.02-.2-.17-.02-.01-.19-.17-.02-.02-.19-.17-.02-.02-.2-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.18-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.18-.18-.02-.01-.19-.18-.02-.02-.18-.17-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.17-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.19-.02-.02-.17-.18-.01-.02-.18-.19-.02-.02-.18-.18-.02-.02-.17-.18-.02-.02-.18-.18-.02-.02-.17-.19-.02-.02-.18-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.16-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.16-.19-.02-.02-.16-.19-.02-.02-.16-.2-.02-.02-.17-.2-.02-.02-.17-.2-.01-.02-.16-.19-.02-.02-.16-.2-.01-.02-.16-.2-.01-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.01-.02-.15-.2-.01-.02-.16-.2-.02-.02-.15-.207-.02-.02-.15-.21-.01-.02-.15-.2-.02-.02-.15-.21-.02-.02-.15-.21-.02-.03-.15-.2-.01-.02-.15-.2-.02-.02-.15-.21-.01-.02-.15-.21-.02-.02-.145-.2-.01-.02-.15-.21-.02-.02-.15-.2-.01-.02-.15-.21-.02-.03-.14-.21-.01-.02-.14-.21-.02-.03-.14-.21-.017-.02-.14-.21-.01-.02-.14-.21-.02-.02-.14-.21-.01-.02-.14-.21-.01-.02-.14-.22-.01-.02-.14-.22-.01-.02-.13-.21-.01-.02-.13-.22-.01-.02-.13-.22-.01-.02-.13-.21-.01-.02-.13-.22-.01-.02-.13-.22-.02-.02-.12-.21-.02-.03-.13-.22-.01-.02-.13-.22-.01-.02-.13-.22-.01-.02-.13-.22-.01-.03-.13-.22-.02-.02-.12-.22-.01-.02-.12-.22-.01-.02-.13-.22-.01-.02-.12-.22-.01-.02-.12-.22-.01-.02-.12-.22-.01-.02-.12-.22-.01-.03-.12-.22-.01-.02-.12-.22-.02-.03-.11-.22-.01-.02-.11-.22-.01-.03-.12-.23-.01-.03-.11-.23-.01-.03-.11-.22-.01-.02-.11-.23-.01-.02-.11-.23-.01-.03-.11-.23-.01-.03-.11-.23-.01-.03-.11-.23-.01-.02-.1-.23-.01-.03-.11-.23-.01-.03-.11-.23-.02-.03-.1-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.02-.1-.23-.01-.02-.1-.23-.01-.03-.1-.24-.01-.02-.1-.23-.01-.03-.09-.23-.01-.02-.1-.23-.01-.02-.1-.23-.01-.03-.1-.24-.01-.02-.09-.24-.01-.03-.09-.23-.01-.03-.09-.23-.01-.03-.09-.24-.01-.02-.09-.24-.01-.03-.09-.24-.01-.03-.09-.24-.01-.02-.09-.24-.01-.02-.09-.24-.01-.03-.08-.24-.01-.02-.08-.24-.01-.03-.09-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.08-.24v-.03l-.08-.25v-.03l-.08-.24-.01-.03-.08-.24-.01-.02-.08-.24-.01-.03-.07-.24-.01-.02-.07-.24-.01-.03-.07-.24-.01-.03-.07-.24-.01-.03-.07-.24-.01-.02-.07-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.02-.07-.24-.01-.03-.06-.25v-.03l-.06-.25v-.03l-.06-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.02-.06-.25v-.03l-.06-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.02-.05-.25-.01-.03-.05-.25v-.03l-.05-.25-.01-.02-.05-.25-.01-.03-.05-.25-.05-.25-.01-.03-.05-.25-.01-.03-.05-.25v-.03l-.05-.26v-.03l-.04-.26-.01-.03-.04-.25v-.03l-.04-.25-.01-.03-.04-.25-.01-.02-.04-.25v-.03l-.04-.26v-.02l-.04-.25-.04-.25-.01-.03-.03-.25v-.03l-.04-.26-.01-.03-.04-.26-.03-.26-.01-.03-.03-.25v-.02l-.04-.25-.03-.25v-.03l-.03-.25v-.03l-.03-.25-.01-.02-.03-.25v-.03l-.03-.25v-.03l-.03-.26v-.03l-.02-.26V275l-.02-.26v-.02l-.03-.26-.01-.03-.02-.26-.01-.02-.01-.26v-.03l-.02-.26v-.03l-.02-.26v-.02l-.02-.26V273l-.02-.26v-.03l-.01-.26v-.03l-.02-.26v-.03l-.01-.26-.01-.26v-.023l-.01-.26-.01-.03v-.29l-.01-.26v-.02l-.01-.26v-.03l-.01-.26v-.03l-.01-.26V148.12l.01-.3v-.03l.01-.298v-.027l.01-.3v-.027l.01-.296v-.027l.01-.3v-.027l.01-.3v-.028l.01-.298v-.027l.01-.298v-.03l.01-.297v-.03l.02-.297v-.027l.01-.3v-.025l.01-.29v-.02l.01-.29v-.02l.01-.29v-.03l.02-.3v-.02l.02-.3v-.02l.02-.3v-.03l.02-.29v-.03l.03-.29.01-.03.02-.3v-.02l.03-.29v-.03l.03-.29V141l.03-.296v-.026l.03-.295v-.03l.04-.296v-.03l.04-.3v-.025l.03-.292.01-.03.03-.29.01-.023.04-.29v-.03l.04-.29.01-.027.04-.297.01-.027.04-.29v-.03l.04-.29v-.03l.04-.29v-.03l.04-.293v-.028l.05-.29v-.03l.05-.29.01-.02.05-.29.01-.03.05-.29v-.03l.05-.29v-.03l.05-.29v-.026l.05-.29.01-.03.05-.29v-.03l.05-.29.01-.03.05-.29.01-.03.05-.29.01-.03.05-.29V133l.05-.29.01-.02.06-.29v-.03l.06-.29.01-.03.06-.29.01-.03.06-.29v-.03l.06-.28.01-.03.06-.29.01-.03.07-.29v-.03l.07-.29v-.03l.07-.28.01-.03.07-.29.01-.02.07-.28v-.02l.07-.29.01-.03.07-.29.01-.03.07-.29v-.03l.07-.29.01-.03.08-.29v-.03l.08-.28.01-.02.08-.28.01-.03.08-.28v-.02l.08-.28.01-.03.08-.28.01-.03.08-.28.01-.02.08-.28.01-.03.08-.28.01-.02.09-.28.01-.03.08-.28v-.03l.09-.28.01-.02.09-.28v-.02l.09-.28.01-.02.09-.28.01-.02.09-.28.01-.03.09-.27.01-.02.09-.27.01-.02.1-.27.01-.03.1-.28.01-.03.1-.27.01-.03.1-.28.01-.02.1-.28.01-.03.1-.28.01-.03.1-.27.01-.02.1-.28.01-.02.1-.28.01-.02.11-.27.01-.03.11-.27.01-.03.11-.27.01-.03.11-.27.01-.03.11-.27.01-.03.11-.27.01-.02.11-.27.01-.03.11-.27.01-.03.12-.27.01-.02.11-.26.01-.02.12-.26.01-.03.11-.26.01-.03.12-.27.01-.02.12-.26.01-.03.12-.26.02-.02.12-.26.01-.02.12-.26.01-.03.12-.26.01-.02.12-.27.01-.02.13-.27.01-.02.13-.26.01-.03.12-.26.01-.02.12-.26.01-.03.13-.26.01-.02.13-.26.01-.02.13-.26.02-.02.14-.26.02-.02.13-.26.01-.02.14-.26.01-.03.13-.26.01-.02.13-.26.02-.03.13-.25.01-.02.13-.26.01-.03.14-.26.01-.03.14-.25.01-.02.14-.25.01-.03.15-.26.01-.02.14-.25.01-.02.15-.25.01-.03.15-.26.01-.02.15-.25.01-.03.15-.25.01-.02.15-.25.02-.02.15-.25.01-.02.15-.25.02-.03.15-.25.01-.02.15-.25.01-.02.15-.25.02-.02.15-.24.02-.02.16-.25.01-.02.15-.25.01-.02.16-.25.015-.02.15-.25.02-.02.16-.24.01-.02.16-.24.02-.02.16-.24.02-.02.16-.24.01-.02.16-.24.02-.02.16-.24.01-.02.16-.24.01-.02.16-.24.01-.02.17-.24.02-.02.16-.24.01-.02.17-.23.01-.02.17-.23.01-.02.17-.24.01-.02.17-.23.01-.02.17-.24.02-.02.17-.23.02-.02.17-.23.02-.02.18-.23.01-.02.17-.23.01-.02.17-.23.02-.02.18-.23.02-.02.17-.23.02-.02.18-.23.01-.02.18-.23.02-.02.18-.23.02-.02.19-.23.02-.02.18-.23.01-.02.18-.22.02-.02.18-.23.02-.02.18-.23.01-.02.19-.23.02-.02.18-.22.02-.02.19-.22.02-.02.19-.22.02-.02.19-.22.01-.02.19-.22.02-.02.19-.22.02-.02.19-.22.02-.02.19-.22.01-.02.19-.22.02-.02.19-.21.02-.02.2-.22.02-.02.19-.22.02-.02.2-.22.02-.02.2-.22.01-.02.21-.21.02-.02.2-.21.02-.02.2-.21.02-.02.2-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.2.02-.02.2-.21.01-.02.21-.21.02-.02.21-.2.02-.02.21-.2.02-.02.21-.2.02-.02.21-.2.02-.02.22-.2.02-.02.21-.2.02-.02.21-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.19.02-.02.22-.19.02-.02.22-.19.02-.02.22-.19.02-.02.22-.19.02-.02.23-.19.02-.02.22-.19.02-.02.22-.2.02-.02.23-.19.02-.02.23-.19.02-.01.23-.18.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.23-.18.02-.01.23-.18.02-.02.24-.18.02-.02.237-.18.02-.02.24-.18.03-.02.24-.18.02-.02.24-.18.02-.02.24-.18.02-.02.24-.18.03-.01.24-.18.02-.01.24-.18.02-.02.24-.17.02-.02.25-.17.03-.01.24-.17.02-.02.24-.17.02-.01.24-.17.02-.02.24-.17.02-.02.24-.17.02-.01.25-.17.02-.01.24-.17.02-.01.24-.17.02-.01.25-.17.02-.02.25-.17.03-.01.25-.16.03-.02.25-.16.03-.01.25-.16.03-.01.25-.16.02-.02.26-.16.03-.01.25-.16.02-.02.25-.15.01-.01L519 20.82l.01-.01.22-.13.02-.02.22-.13.03-.01.22-.14.02-.01.23-.13.03-.01.22-.13.03-.02.22-.13.02-.02.23-.13.02-.01.22-.13.03-.02.22-.13.02-.01.23-.13.03-.01.22-.13.02-.02.224-.12.03-.01.22-.12.03-.01.23-.12.03-.02.23-.12.02-.01.23-.12.02-.01.23-.12.02-.02.23-.11.03-.02.23-.12.02-.01.23-.11.02-.02.22-.11.03-.02.23-.11.03-.01.23-.12.03-.01.23-.11.03-.01.23-.11.03-.01.23-.11.03-.01.23-.11.02-.01.23-.11.03-.01.23-.11.03-.01.23-.1.03-.01.23-.11.03-.01.23-.1.03-.01.23-.1.03-.01.23-.1.03-.01.23-.1.02-.01.23-.1.02-.01.24-.1.03-.01.23-.1.03-.01.23-.09.03-.01.24-.1.03-.01.23-.1.03-.01.24-.09.03-.01.24-.09.03-.01.23-.09.03-.01.24-.09.025-.01.23-.09.02-.01.24-.09.03-.01.24-.09.03-.01.24-.09h.03l.24-.08.03-.01.24-.08.03-.01.24-.08.02-.01.24-.08.03-.01.24-.08.03-.01.24-.08.02-.01.24-.08.03-.01.24-.07.02-.01.24-.08.02-.01.24-.07.03-.01.24-.07.03-.01.24-.08.03-.01.24-.07h.02l.24-.07.03-.01.24-.07h.03l.24-.07h.03l.24-.07.03-.01.24-.07.02-.01.24-.07.03-.01.24-.07.03-.01.24-.06.03-.01.24-.07.03-.01.24-.06.03-.01.24-.06h.03l.24-.06.03-.006.24-.06.03-.01.24-.06.03-.01.25-.06.02-.01.25-.06.03-.01.24-.055.03-.01.24-.06.03-.01.24-.05.03-.01.24-.05.02-.01.25-.05h.03l.25-.05h.03l.25-.05h.03l.24-.05.03-.01.24-.04.03-.01.25-.04.03-.01.24-.04h.02l.24-.05.03-.01.24-.04h.03l.25-.04.03-.01.24-.04.03-.01.25-.04.03-.01.25-.03h.03l.25-.03h.03l.24-.04h.03l.24-.03h.03l.25-.04h.03l.24-.03h.03l.24-.03h.03l.24-.03h.03l.24-.03h.03l.24-.03h.03l.25-.03h.03l.25-.03h.03l.24-.03h.03l.25-.02h.03l.25-.02h.03l.25-.02h.03l.25-.02h.03l.25-.02h.03l.25-.02h.03l.24-.02h.03l.25-.02h.03l.25-.02h.03l.25-.01h.03l.25-.01h.03l.25-.02h.03l.25-.01h.04l.25-.01h.03l.25-.01h.03l.25-.01h.03l.25-.01h2zm-.23 27h-.163l-.163.002h-1.162l-.164.01h-.163l-.166.01-.17.01-.17.01-.16.01-.17.01-.17.01-.17.01-.17.01-.17.01-.17.01-.17.01-.17.01-.16.01-.17.02-.17.02-.16.02-.16.01-.17.02-.16.02-.17.02-.17.02-.17.02-.16.02-.16.02-.17.02-.16.02-.17.03-.16.02-.16.03-.16.03-.16.02-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.17.03-.16.03-.16.04-.16.03-.16.04-.16.03-.17.04-.16.04-.16.03-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.15.04-.16.04-.16.04-.16.05-.16.05-.16.05-.16.05-.16.05-.16.05-.15.05-.16.05-.15.05-.16.05-.16.05-.16.05-.16.05-.15.06-.15.06-.16.05-.16.05-.15.06-.16.06-.15.05-.16.06-.15.06-.15.06-.16.07-.15.06-.16.06-.15.06-.16.06-.16.07-.16.06-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.08-.15.08-.15.07-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.08-.15.09-.15.08-.15.09-.14.09-.15.09-.16.1L437.07 103l-.19.12-.19.11-.18.12-.18.11-.18.12-.18.12-.18.12-.18.12-.18.12-.18.12-.18.12-.18.12-.18.13-.17.12-.18.13-.17.12-.17.13-.18.12-.17.12-.18.13-.18.13-.17.13-.17.13-.17.13-.17.13-.17.13-.17.13-.17.13-.17.13-.17.135-.16.136-.16.13-.17.13-.17.14-.17.13-.16.14-.16.14-.16.14-.16.14-.16.14-.16.14-.16.14-.16.15-.16.14-.16.14-.16.14-.15.15-.16.14-.16.14-.15.14-.16.15-.16.15-.16.14-.15.14-.15.15-.15.15-.15.15-.15.15-.15.15-.15.15-.15.15-.15.15-.15.15-.15.15-.14.16-.14.15-.15.16-.15.16-.14.16-.14.15-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.13.16-.14.16-.13.17-.13.16-.13.16-.13.16-.14.17-.13.16-.13.16-.13.17-.13.17-.13.17-.13.17-.13.17-.13.16-.13.17-.12.17-.12.17-.13.17-.12.17-.12.18-.12.17-.12.17-.12.17-.12.17-.12.17-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.11.18-.12.17-.12.18-.11.17-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.1.19-.11.18-.11.19-.1.19-.1.19-.11.18-.1.18-.1.19-.1.18-.1.18-.1.19-.1.19-.09.19-.1.19-.1.19-.09.19-.09.18-.09.19-.1.19-.09.19-.09.19-.09.19-.09.19-.09.19-.08.2-.09.19-.09.19-.08.19-.08.2-.08.2-.08.19-.08.2-.09.2-.08.19-.08.19-.08.2-.08.19-.08.2-.08.2-.08.2-.08.2-.07.2-.08.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.07.2-.06.2-.06.2-.068.21-.06.2-.06.2-.06.21-.06.2-.06.2-.06.2-.056.21-.06.21-.06.21-.05.2-.06.2-.056.21-.06.21-.05.21-.05.21-.05.2-.05.21-.05.21-.05.21-.05.21-.043.21-.04.21-.04.21-.04.21-.04.21-.04.21-.05.21-.04.21-.04.21-.04.21-.04.21-.03.21-.04.21-.04.21-.03.21-.04.21-.03.21-.04.21-.03.22-.03.22-.03.21-.03.21-.03.21-.03.21-.03.21-.03.21-.024.22-.02.21-.03.22-.02.21-.02.21-.02.22-.02.21-.02.22-.02.21-.02.22-.02.21-.02.21-.02.22-.02.22-.01.22-.01.21-.01.22-.01.22-.01.22-.01.22v.22l-.01.21-.01.21-.01.21v.22l-.006.22v121.27l.01.18v.35l.01.18v.35l.01.17.01.18.01.17.01.18.01.18.01.17.01.18.01.18.02.17.01.18.01.17.02.17.02.17.01.17.02.17.02.17.02.17.02.17.02.18.02.17.02.17.02.17.02.17.02.17.03.17.03.17.02.17.03.17.03.17.02.18.03.17.03.17.03.17.03.17.03.17.03.17.03.17.03.17.033.17.04.17.03.17.04.17.04.17.035.17.04.17.04.17.04.17.04.17.04.17.04.16.04.17.045.17.04.17.05.17.04.16.05.17.05.16.045.17.05.16.05.16.04.17.05.17.05.16.05.17.05.17.05.16.06.16.05.17.05.16.05.16.05.16.06.17.06.16.06.16.06.16.06.16.06.16.06.16.06.17.06.16.06.16.06.16.06.17.068.16.065.16.07.16.07.16.07.16.07.16.07.16.06.16.07.16.07.16.07.16.07.16.07.16.07.16.07.15.07.16.07.15.07.15.08.15.08.16.08.16.08.15.07.15.08.15.08.15.08.15.08.15.08.15.08.15.08.15.08.15.08.15.08.15.09.15.08.15.09.15.09.15.09.15.09.14.09.15.09.14.09.15.09.15.09.15.09.15.09.15.1.14.09.15.09.15.095.14.09.14.1.14.09.15.09.14.1.14.094.15.1.14.09.14.1.14.09.14.1.14.1.14.1.14.1.14.104.14.1.14.11.14.1.13.1.14.1.14.11.14.11.14.11.13.11.14.11.14.11.14.11.13.11.13.1.14.12.13.11.13.11.13.11.13.11.13.11.13.12.13.12.13.12.13.12.12.12.13.12.13.11.13.12.12.12.12.12.13.12.13.12.12.12.12.12.12.12.12.12.13.13.13.12.12.12.12.13.12.12.12.13.12.13.12.12.12.13.12.13.11.13.12.13.11.13.12.13.12.13.11.13.11.13.12.13.11.13.12.13.12.13.11.14.11.14.11.13.11.14.11.14.11.14.11.14.11.14.11.14.11.14.11.14.11.13.1.14.1.14.11.14.1.14.1.14.1.14.11.14.1.14.1.14.1.14.11.14.1.14.1.15.1.15.1.14.1.14.1.14.1.15.09.15.1.14.1.15.1.15.09.15.1.15.1.15.09.15.09.15.09.15.1.15.09.16.1 104.69 61.19.13.07.12.07.12.07.12.06.11.07.11.06.11.06.12.07.12.06.12.06.12.06.12.06.12.06.12.06.12.06.12.06.12.05.12.06.12.05.12.06.12.06.12.06.12.05.12.06.12.05.12.05.12.06.12.05.12.05.12.06.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.13.05.12.04.13.05.12.04.12.04.12.05.12.04.12.04.12.05.12.04.12.04.13.04.12.04.11.04.26.08.25.08.25.08.25.07.25.07.25.07.25.06.25.07.25.06.25.06.25.06.25.06.25.05.26.05.25.05.25.05.25.05.25.04.26.04.26.04.26.04.26.04.26.03.25.03.26.03.26.03.26.02.25.02.26.03.26.02.26.02.25.02.25.01.25.01.26.01.26.01.26.01h.78l.26-.01h.26l.26-.01.26-.01.25-.01.26-.02.26-.02.26-.02.26-.02.26-.02.26-.02.26-.03.25-.03.26-.03.25-.03.26-.03.26-.03.25-.04.26-.04.25-.04.25-.05.25-.05.25-.04.26-.05.25-.05.25-.05.26-.06.25-.06.26-.06.25-.06.25-.07.25-.07.25-.07.25-.07.25-.08.26-.08.11-.03.13-.04.12-.04.12-.04.12-.04.13-.04.12-.04.12-.04.12-.04.13-.05.12-.05.12-.04.13-.04.12-.04.12-.04.12-.04.12-.05.12-.05.12-.04.12-.05.12-.05.12-.05.12-.05.12-.05.13-.05.12-.05.12-.05.12-.06.12-.05.12-.05.12-.05.12-.05.12-.06.12-.06.12-.05.12-.05.12-.05.12-.05.12-.06.11-.06.12-.06.12-.06.12-.06.11-.06.12-.06.12-.06.12-.07.11-.06.12-.06.11-.07.12-.07.13-.07 115.92-64.56.14-.07.12-.07.12-.07.13-.07.12-.07.12-.08.12-.08.12-.07.12-.07.12-.07.12-.08.12-.07.12-.08.12-.07.12-.08.12-.08.11-.08.12-.08.12-.08.12-.08.12-.08.11-.08.11-.08.12-.08.12-.08.12-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.09.11-.08.11-.08.11-.08.11-.08.11-.09.11-.09.11-.09.11-.09.11-.08.11-.09.11-.09.1-.08.1-.09.1-.09.11-.09.1-.09.1-.09.1-.09.1-.09.1-.09.1-.09.1-.1.1-.09.1-.1.1-.09.1-.09.1-.09.1-.1.1-.1.1-.09.09-.09.1-.1.1-.1.1-.1.1-.1.09-.1.09-.1.09-.1.1-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.1-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.08-.11.09-.11.08-.1.09-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.12.08-.11.08-.11.08-.11.08-.11.08-.11.08-.12.08-.11.08-.11.08-.11.08-.11.07-.12.07-.11.07-.12.07-.11.07-.12.07-.12.08-.12.07-.12.07-.11.07-.12.07-.12.07-.12.07-.12.06-.12.07-.12.07-.12.07-.12.07-.12.07-.12.07-.12.07-.12.07-.12.06-.12.07-.12.07-.12.06-.12.06-.12.06-.12.06-.12.06-.12.06-.12.06-.13.06-.12.05-.13.06-.12.06-.13.05-.12.06-.12.05-.12.06-.12.06-.13.05-.12.06-.13.06-.13.05-.13.05-.13.05-.13.05-.13.05-.13.06-.13.05-.13.05-.12.05-.13.05-.13.05-.13.05-.13.05-.12.04-.13.05-.12.05-.13.05-.13.04-.13.04-.13.04-.13.05-.13.04-.13.05-.13.04-.12.04-.13.04-.13.04-.13.04-.13.04-.13.04-.14.04-.13.04-.13.03-.13.04-.13.03-.13.04-.13.03-.14.04-.13.03-.13.03-.13.03-.13.03-.13.03-.13.03-.14.03-.13.03-.13.03-.13.03-.13.03-.14.03-.14.03-.14.02-.14.03-.13.03-.13.03-.13.03-.14.02-.14.02-.14.02-.14.02-.14.02-.14.02-.14.02-.13.02-.14.02-.14.02-.14.02-.14.01-.13.01-.14.02-.14.02-.13.02-.14.01-.14.01-.14.01-.14.01-.14.02-.14.01-.14.01-.13.01-.14.01-.14.01-.14.01-.14.01-.14v-.14l.01-.14.01-.14.01-.14.01-.14v-.83l.01-.16V136.6l-.01-.14v-.507l-.01-.13-.01-.125-.01-.125v-.255l-.01-.128v-.252l-.01-.11-.02-.268-.02-.25-.02-.25-.03-.254-.02-.25-.03-.25-.03-.248-.03-.25-.03-.248-.03-.248-.04-.248-.04-.248-.04-.25-.04-.245-.04-.24-.05-.24-.04-.24-.05-.24-.05-.24-.05-.24-.06-.24-.06-.24-.06-.24-.06-.24-.06-.24-.06-.24-.07-.23-.07-.23-.07-.24-.07-.24-.08-.23-.07-.23-.08-.24-.08-.23-.08-.23-.08-.23-.09-.23-.09-.23-.09-.23-.09-.23-.09-.23-.09-.22-.1-.23-.1-.22-.1-.22-.1-.22-.11-.22-.1-.22-.11-.22-.11-.22-.11-.22-.11-.22-.12-.21-.12-.22-.11-.22-.12-.21-.12-.21-.12-.21-.13-.21-.12-.21-.13-.21-.13-.21-.13-.2-.14-.2-.14-.21-.13-.2-.13-.2-.14-.2-.14-.2-.15-.2-.14-.2-.15-.19-.15-.2-.15-.19-.15-.2-.16-.19-.16-.19-.15-.19-.16-.19-.16-.19-.16-.18-.17-.18-.17-.19-.17-.19-.17-.18-.17-.18-.17-.18-.18-.18-.18-.17-.17-.18-.18-.17-.18-.17-.18-.17-.18-.17-.18-.17-.19-.17-.18-.17-.18-.17-.19-.16-.19-.16-.19-.16-.19-.16-.2-.16-.19-.16-.19-.15-.2-.15-.2-.15-.2-.15-.2-.15-.21-.14-.21-.14-.2-.14-.21-.14-.22-.15-.1-.07-.1-.07-.11-.07-.11-.07-.1-.07-.11-.07-.11-.07-.11-.07-.11-.06-.11-.06-.11-.07-.1-.07-.11-.07-.13-.07-113.4-66.79-.16-.09-.15-.09-.15-.08-.15-.08-.14-.08-.14-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.07-.15-.07-.15-.07-.15-.07-.15-.08-.15-.07-.15-.08-.15-.07-.15-.08-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.16-.07-.15-.07-.15-.07-.16-.07-.15-.07-.15-.06-.15-.07-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.16-.06-.16-.06-.15-.05-.16-.06-.15-.06-.16-.05-.16-.05-.16-.06-.16-.05-.15-.05-.15-.05-.16-.05-.15-.05-.16-.05-.16-.05-.16-.05-.16-.04-.16-.04-.16-.04-.16-.04-.16-.04-.16-.05-.16-.04-.16-.04-.16-.04-.16-.04-.16-.03-.16-.04-.16-.04-.16-.04-.16-.04-.16-.04-.16-.03-.16-.04-.16-.04-.17-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.17-.03-.17-.03-.16-.03-.16-.02-.16-.02-.16-.03-.16-.02-.16-.03-.17-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.01-.17-.02-.16-.02-.17-.01-.16-.02-.17-.01-.16-.01-.16-.01-.17-.01-.16-.02-.16-.01-.16-.01-.16-.01-.17-.01-.16-.01h-.16l-.17-.01h-.4l-.16-.01-.16-.01-.17-.01h-.65z"/>
+  <path fill="#fff" fill-rule="nonzero" d="M477.32 109.382h42.288V221.55c0 17.8.488 29.335 1.468 34.61 1.69 8.476 4.814 14.367 11.177 19.5 6.364 5.13 13.795 6.586 24.832 6.586 11.214 0 14.968-1.736 20.664-6.587 5.69-4.86 9.12-9.47 10.28-16.54 1.15-7.07 3.07-18.79 3.07-35.18V109.38h42.28v108.78c0 24.862-1.07 42.425-3.21 52.69-2.14 10.267-6.08 18.932-11.82 25.995-5.74 7.064-13.42 12.69-23.03 16.88-9.62 4.192-22.16 6.287-37.65 6.287-18.69 0-32.87-2.284-42.52-6.85-9.66-4.568-17.29-10.502-22.9-17.8-5.61-7.3-9.3-14.952-11.08-22.957-2.58-11.865-3.88-29.383-3.88-52.552v-110.47z"/>
+  <path fill="#33BA91" d="M1099.375 259.25V136.945c0-15.835-8.485-30.456-22.232-38.313-29.61-16.92-81.932-46.823-113.668-64.96-16.524-9.444-36.86-9.23-53.18.56-26.532 15.913-67.455 40.46-95.98 57.567-20.207 12.12-32.573 33.96-32.573 57.52v119.53c0 19.93 10.58 38.37 27.793 48.43l104.718 61.21c13.925 8.14 31.113 8.31 45.204.47l115.943-64.58c14.8-8.25 23.98-23.85 23.98-40.79v-14.35z"/>
+  <path fill="#00A88A" d="M937.492 13.234h.272l.242.003h.027l.243.004h.027l.244.01h.027l.243.01h.027l.244.01h.028l.242.01h.028l.242.01h.028l.244.01h.027l.243.01h.027l.243.01.028.01.243.01.03.01.25.02h.03l.25.02h.03l.25.02.03.01.24.02h.03l.24.02h.03l.24.02.03.01.24.01.03.01.24.02h.03l.24.02h.03l.24.02h.03l.24.02h.03l.24.02.03.01.25.02.03.01.24.03h.03l.24.02.03.01.24.03h.03l.24.03h.03l.25.03h.03l.24.03.03.01.24.03h.03l.24.03h.03l.24.03.03.01.24.04.03.01.24.04.03.01.24.04.03.01.24.04h.03l.24.04.03.01.24.04.03.01.24.04.03.01.24.04.03.01.24.04.03.01.24.05h.03l.24.05.03.01.24.04h.03l.24.04.03.01.24.04.03.01.24.05.03.01.24.05h.02l.24.05h.03l.24.05.03.01.24.05.03.01.24.05.03.01.24.05.03.01.24.05h.02l.24.06.03.01.24.06.03.01.24.06.03.01.24.06h.02l.24.06.03.01.24.06.03.01.24.07h.03l.24.06h.03l.24.07.02.01.24.06.03.01.24.07h.03l.24.07.03.01.24.07.03.01.24.07.03.01.24.07h.03l.24.08.03.01.24.07.03.01.23.08.03.01.24.07h.03l.24.07.03.01.24.08.03.01.24.08.02.01.24.08.03.01.23.08.03.01.23.08.03.01.23.08.03.01.23.08.03.01.23.08.03.01.23.09.03.01.23.08.03.01.23.09.03.01.23.09.02.01.23.09.03.01.23.09.03.01.23.09.03.01.23.09.03.01.23.09.03.01.23.09.02.01.23.1.02.01.23.09.03.01.23.1.03.01.23.1.03.01.23.1.02.01.23.1.03.01.23.1.03.01.23.1.02.02.23.1.03.01.22.1.03.01.23.11.03.01.22.11.03.01.22.11.03.01.23.11.02.01.23.11.02.01.22.11.03.01.22.11.03.01.22.11.03.01.22.12.03.01.23.11.03.02.22.11.02.01.22.12.03.02.22.12.02.01.22.12.02.01.22.12.02.01.22.12.03.02.22.12.03.02.22.12.02.02.22.12.02.02.22.13.03.01.22.13 113.6 64.9.19.11.03.01.19.11.03.01.18.11.03.02.18.11.02.02.19.11.03.01.19.11.03.01.18.11.03.02.18.11.02.01.18.11.02.01.18.12.02.01.19.11.03.02.18.11.03.02.17.11.02.01.18.11.03.01.18.11.02.02.18.11.03.02.18.12.02.01.18.12.03.01.18.12.02.01.18.12.02.01.17.12.03.01.17.12.02.02.17.12.03.02.17.12.02.01.17.12.02.01.17.12.03.02.17.13.03.02.17.12.03.02.17.13.02.01.17.13.02.02.18.13.02.01.17.13.02.02.17.13.02.02.17.13.02.01.17.13.02.02.17.13.02.02.16.13.02.02.17.13.02.01.16.14.02.02.17.14.02.02.17.13.02.02.16.13.02.02.16.14.02.01.17.14.03.02.32.26.04.04.32.28.04.04.31.27.04.04.31.28.05.04.31.28.04.04.31.29.05.04.3.29.04.04.3.29.04.04.3.29.04.04.3.29.04.04.3.3.04.04.29.3.04.04.29.3.04.04.29.3.04.04.28.31.04.04.28.3.04.04.28.31.03.04.28.31.04.05.27.31.04.04.27.32.04.05.27.32.04.04.26.32.04.04.26.32.03.04.26.32.03.04.26.33.04.04.26.33.03.04.25.33.03.05.25.33.03.05.25.34.03.05.24.34.03.04.24.34.03.04.23.34.03.05.24.34.03.04.23.34.03.05.23.35.03.05.23.35.03.05.22.35.03.04.22.35.03.05.22.36.03.05.22.35.03.04.21.36.03.05.21.35.03.04.2.36.03.05.21.36.03.05.2.36.02.04.2.36.03.05.19.36.02.05.19.37.03.05.19.37.03.05.19.37.02.05.18.37.03.05.18.37.03.05.18.37.02.05.17.37.03.05.17.37.02.06.17.38.02.05.16.38.02.06.16.38.02.05.16.38.02.05.15.39.02.05.15.39.02.05.15.39.02.05.15.39.02.05.14.39.02.05.14.39.02.06.14.39.02.05.13.39.02.05.13.39.02.05.12.4.02.05.12.39.02.05.12.4.02.05.12.4.02.05.12.4.01.06.11.4.01.05.11.4.02.05.11.41.01.06.1.41.01.05.1.41.01.06.09.41.01.05.09.41.01.06.09.41.01.05.08.41.02.06.08.41.01.06.07.4.01.04.04.22v.03l.04.21.01.03.03.21.01.03.03.21.01.02.03.21.01.02.03.21.01.03.04.21.01.03.03.21.01.02.03.21v.03l.03.21.01.03.02.21.01.02.03.2v.03l.03.21v.03l.03.21v.02l.02.21v.03l.03.21.01.03.02.21v.03l.03.2v.02l.02.21.01.03.02.21v.03l.02.21v.03l.02.21v.02l.02.21.01.03.02.21.01.02.02.21.01.04.02.21v.03l.01.21.01.03.01.21v.02l.01.21v.03l.01.22v.03l.01.21.01.03.01.21v.02l.01.21v.03l.01.22v.03l.01.21v.03l.01.22v.03l.01.21v.27l.01.21v.26l.01.21v138.4l-.01.22v.54l-.01.23v.03l-.01.22v.03l-.01.23v.03l-.01.22v.03l-.01.22v.03l-.01.23-.01.03-.01.22v.02l-.02.23v.02l-.02.23v.03l-.02.23v.03l-.02.23v.03l-.01.23v.03l-.02.22v.03l-.02.22v.03l-.02.22v.03l-.02.22-.01.03-.02.23-.01.03-.02.22v.03l-.02.22-.01.03-.03.22v.03l-.02.22-.01.03-.03.22v.03l-.03.22v.03l-.03.23v.03l-.03.22v.03l-.03.22v.03l-.03.22-.01.04-.03.22v.02l-.03.22-.01.04-.03.23-.01.03-.03.22-.01.02-.03.22-.01.03-.04.22v.03l-.04.22-.01.03-.04.22v.02l-.04.22v.02l-.04.22-.01.03-.04.22v.03l-.04.22v.03l-.04.22v.03l-.04.22-.01.03-.04.22-.01.02-.05.22-.01.03-.04.22-.01.02-.05.21v.03l-.05.22-.01.03-.05.22v.03l-.05.22v.02l-.05.21-.01.02-.05.21-.01.02-.05.22v.03l-.06.22-.01.03-.05.21v.03l-.06.22-.01.03-.05.21-.01.02-.06.21v.03l-.06.22v.03l-.06.21-.01.02-.06.21v.03l-.06.21-.01.03-.06.22-.01.03-.06.21-.01.03-.06.21-.01.02-.06.21-.01.03-.06.21-.01.02-.06.21-.01.03-.06.21-.01.03-.06.2v.02l-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.08.21-.01.02-.07.21-.01.03-.07.2-.01.02-.07.21-.01.03-.07.21-.01.02-.07.21-.01.03-.08.21-.02.02-.08.21-.01.03-.08.21-.01.03-.08.2-.01.02-.08.2-.01.02-.08.2-.01.03-.08.2-.01.02-.08.2-.01.03-.08.21-.01.03-.08.2-.01.03-.08.21-.01.03-.09.2-.01.02-.09.21-.01.03-.09.2-.01.03-.09.2-.02.02-.08.2-.01.02-.09.2-.01.03-.09.2-.01.03-.09.2-.02.03-.09.2-.01.02-.09.2-.01.03-.09.2-.02.03-.1.2-.01.02-.1.19-.01.03-.1.2-.01.03-.1.2-.01.03-.1.19-.01.02-.1.2-.01.02-.1.2-.01.03-.1.19-.01.02-.1.19-.02.02-.11.19-.01.02-.1.2-.01.02-.11.19-.01.02-.1.2-.01.02-.11.2-.01.03-.11.2-.01.02-.11.19-.01.02-.11.19-.01.02-.11.19-.01.02-.11.19-.02.02-.11.19-.01.03-.11.19-.02.02-.11.19-.01.03-.11.19-.01.02-.11.19-.01.02-.11.19-.01.02-.12.19-.01.02-.12.18-.01.02-.12.19-.02.02-.11.19-.02.03-.12.18-.01.02-.12.19-.02.03-.12.19-.01.02-.12.18-.02.03-.12.19-.01.03-.12.18-.01.02-.12.18-.01.02-.12.18-.02.03-.12.18-.02.02-.12.18-.01.02-.13.18-.01.02-.12.18-.02.02-.13.18-.02.02-.13.18-.02.03-.13.18-.02.02-.12.18-.02.03-.13.17-.02.02-.13.18-.01.02-.13.18-.02.02-.13.18-.02.02-.13.18-.01.02-.13.17-.02.02-.13.17-.01.02-.13.18-.02.03-.14.17-.01.02-.14.17-.02.02-.14.17-.02.03-.14.17-.02.02-.13.17-.02.02-.14.17-.02.03-.14.17-.02.02-.14.17-.02.02-.15.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.15.17-.02.03-.14.17-.01.02-.14.16-.02.02-.15.16-.02.02-.14.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.03-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.16.16-.01.02-.15.16-.02.02-.16.16-.02.03-.16.16-.02.02-.15.16-.02.02-.16.16-.02.02-.16.16-.02.02-.16.15-.02.02-.16.16-.02.02-.16.16-.02.02-.16.15-.02.02-.16.15-.03.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.02.02-.17.15-.02.02-.16.15-.02.02-.17.14-.02.02-.17.15-.02.02-.17.15-.02.01-.17.14-.02.02-.17.15-.02.02-.17.15-.02.01-.17.14-.02.02-.17.15-.02.01-.17.14-.02.01-.17.14-.02.02-.17.14-.02.01-.17.14-.02.02-.17.14-.02.02-.18.14-.02.02-.17.14-.02.02-.18.14-.02.02-.17.14-.02.02-.18.14-.02.02-.18.13-.02.02-.18.14-.02.02-.18.13-.02.01-.18.13-.02.02-.18.14-.02.02-.18.13-.02.01-.18.13-.02.02-.18.13-.02.01-.18.13-.02.01-.19.13-.02.02-.18.13-.02.01-.18.13-.02.01-.18.13-.02.02-.19.12-.03.02-.18.13-.02.02-.19.13-.03.02-.19.13-.02.02-.19.13-.02.02-.18.12-.02.01-.19.12-.02.02-.19.12-.03.02-.19.12-.02.01-.19.12-.02.02-.19.12-.02.01-.19.12-.02.02-.19.12-.02.01-.19.12-.02.02-.19.12-.03.01-.2.11-.03.02-.19.12-.03.02-.2.11-.02.02-.2.11-.03.01-.2.12-.03.02-.19.11-.02.02-.2.12-.03.02-.19.11-.01.01-115.96 64.58-.01.01-.18.1-.03.01-.19.11-.03.01-.19.11-.03.01-.19.1-.02.02-.19.11-.02.01-.19.1-.03.01-.19.1-.03.01-.19.1-.02.01-.19.1-.03.01-.19.1-.03.02-.19.1-.02.01-.19.1-.03.01-.2.1-.03.01-.2.09-.02.02-.19.09-.03.01-.2.09-.03.01-.19.09-.02.01-.19.09-.03.01-.2.09-.03.01-.19.09-.03.01-.19.09-.03.01-.2.08-.03.01-.19.09-.02.01-.19.09-.03.01-.2.09-.03.01-.19.09-.03.01-.2.08-.02.01-.2.09-.03.01-.19.08-.03.01-.2.08-.03.02-.2.08-.02.01-.2.08-.03.01-.2.08-.02.01-.2.08-.02.01-.2.08-.03.01-.2.08-.02.01-.2.08-.03.01-.2.08-.03.01-.2.07-.03.01-.2.07-.03.01-.2.07-.03.01-.2.07-.02.01-.2.07-.03.01-.2.07-.03.01-.2.07-.02.01-.2.07-.03.01-.2.07-.03.01-.2.06-.03.01-.21.06h-.02l-.2.06-.03.01-.21.07h-.1l-.21.06-.04.01-.4.12-.05.02-.41.12-.05.01-.41.12-.05.02-.41.11-.05.01-.41.11-.06.01-.41.1-.05.01-.41.1-.053.01-.41.09-.06.01-.41.09-.05.01-.41.09-.06.01-.412.09-.06.01-.41.09-.05.01-.41.08-.05.02-.42.08-.05.01-.41.07-.05.01-.42.07-.05.01-.42.06-.05.01-.42.06h-.05l-.42.06-.06.01-.41.06h-.05l-.42.06-.06.01-.42.05-.05.01-.42.05-.06.01-.42.04h-.05l-.42.04h-.05l-.42.04-.06.01-.42.03-.05.01-.42.03h-.06l-.42.02h-.05l-.42.03-.05.01-.42.02-.05.01-.42.02h-.06l-.42.02h-.05l-.42.01h-.05l-.42.01h-.05l-.42.01h-1l-.42-.01h-.06l-.41-.01h-.1l-.42-.01h-.06l-.42-.01h-.1l-.42-.02h-.05l-.42-.02h-.05l-.42-.02h-.06l-.42-.03-.06-.01-.42-.03h-.05l-.42-.03h-.05l-.42-.04-.05-.01-.41-.04-.052-.01-.42-.04h-.05l-.42-.05h-.06l-.42-.05h-.05l-.42-.06-.06-.01-.42-.06-.05-.01-.42-.07-.06-.01-.42-.07-.06-.01-.42-.07-.05-.01-.41-.08-.06-.01-.42-.08-.05-.01-.42-.08-.05-.01-.42-.09-.06-.01-.41-.09-.06-.01-.42-.09-.05-.01-.41-.09-.05-.01-.41-.1-.05-.01-.41-.1-.05-.02-.41-.1-.05-.01-.41-.11-.05-.01-.41-.11-.05-.01-.41-.12-.05-.01-.41-.12-.05-.02-.4-.12-.05-.01-.4-.13-.05-.01-.41-.13-.05-.02-.4-.13-.04-.01-.21-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.02-.01-.2-.07-.03-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.08-.03-.01-.2-.07-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.02-.01-.19-.09-.03-.01-.2-.09-.03-.02-.19-.08-.02-.01-.19-.08-.02-.01-.2-.09-.03-.01-.19-.09-.03-.01-.19-.09-.02-.01-.2-.09-.03-.01-.19-.09-.03-.01-.19-.09-.03-.01-.19-.09-.03-.01-.2-.09-.03-.01-.2-.1-.03-.01-.2-.09-.03-.01-.19-.1-.03-.01-.19-.09-.02-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.02-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.02-.01-.19-.1-.02-.02-.19-.1-.02-.01-.19-.1-.03-.01-.19-.11-.02-.01-.19-.1-.02-.02-.19-.11-.02-.01-.19-.11-.03-.01-.19-.11-.02-.02-.19-.11-.02-.01-.18-.1-.01-.01-105-61.25-.01-.01-.22-.13-.02-.01-.22-.13-.03-.01-.22-.14-.02-.01-.23-.14-.03-.01-.22-.13-.02-.01-.22-.14-.03-.02-.22-.14-.02-.01-.22-.14-.02-.02-.22-.14-.03-.02-.22-.14-.03-.01-.22-.14-.02-.02-.22-.14-.03-.02-.22-.15-.02-.02-.22-.15-.02-.02-.22-.14-.02-.01-.21-.15-.02-.02-.21-.15-.02-.02-.21-.15-.02-.02-.22-.15-.02-.01-.21-.15-.02-.02-.21-.15-.02-.01-.21-.15-.02-.02-.21-.15-.02-.01-.21-.15-.02-.01-.21-.15-.02-.02-.21-.16-.02-.02-.21-.15-.02-.02-.21-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.15-.02-.02-.21-.16-.03-.02-.2-.16-.02-.01-.21-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.03-.02-.2-.16-.02-.02-.2-.17-.02-.02-.2-.17-.02-.02-.2-.16-.02-.02-.2-.17-.02-.02-.2-.17-.02-.02-.19-.17-.02-.01-.2-.17-.02-.02-.19-.17-.02-.02-.2-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.2-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.19-.18-.02-.02-.19-.17-.02-.02-.19-.17-.02-.02-.19-.18-.02-.02-.18-.17-.02-.02-.18-.18-.01-.01-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.17-.18-.02-.02-.18-.19-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.17-.19-.02-.02-.18-.18-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.16-.19-.01-.02-.17-.2-.02-.02-.17-.19-.02-.02-.16-.19-.01-.02-.17-.19-.01-.02-.16-.19-.02-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.01-.02-.16-.19-.02-.03-.16-.19-.02-.02-.16-.2-.02-.02-.15-.2-.02-.02-.16-.2-.02-.02-.15-.2-.02-.02-.16-.21-.02-.02-.15-.2-.02-.02-.15-.2-.02-.02-.15-.21-.02-.02-.15-.2-.02-.02-.15-.203-.02-.03-.15-.21-.01-.02-.15-.2-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.15-.204-.01-.02-.15-.2-.02-.03-.15-.21-.01-.02-.14-.21-.02-.02-.14-.21-.01-.03-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.02-.02-.14-.21-.01-.02-.14-.21-.01-.02-.14-.21-.02-.03-.14-.22-.01-.02-.14-.22-.01-.02-.13-.21-.01-.02-.13-.22-.01-.02-.13-.22-.02-.03-.13-.21-.01-.02-.13-.22-.02-.03-.13-.21-.01-.02-.12-.21-.02-.02-.13-.22-.02-.02-.13-.22-.01-.03-.13-.22-.01-.03-.12-.22-.01-.02-.12-.22-.01-.02-.13-.22-.01-.02-.12-.22-.01-.02-.13-.22-.02-.03-.12-.22-.01-.02-.12-.22-.015-.02-.12-.22-.01-.02-.11-.23-.01-.02-.12-.22-.01-.02-.12-.22-.01-.03-.12-.23-.01-.02-.11-.22-.01-.03-.12-.22-.01-.02-.11-.22-.01-.025-.11-.23-.01-.02-.11-.23-.01-.02-.11-.23-.01-.03-.11-.23-.01-.02-.11-.23-.01-.03-.11-.23-.02-.03-.11-.23-.01-.03-.1-.23-.02-.03-.1-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.02-.1-.23-.01-.02-.1-.24-.01-.02-.09-.23-.01-.03-.1-.24-.01-.02-.1-.24-.01-.03-.1-.24-.01-.03-.09-.24-.01-.02-.09-.23-.01-.03-.09-.24-.01-.03-.09-.23-.01-.02-.09-.24-.01-.025-.09-.24-.01-.03-.09-.24-.01-.03-.09-.23-.01-.03-.09-.24-.01-.02-.09-.24-.01-.02-.09-.24v-.02l-.09-.24-.01-.03-.09-.24-.01-.02-.08-.24-.01-.02-.08-.24-.01-.02-.08-.24-.01-.03-.08-.24-.01-.02-.07-.24-.01-.03-.07-.24-.01-.03-.08-.24-.01-.03-.07-.24-.01-.03-.07-.24-.01-.03-.08-.25v-.03l-.07-.24-.01-.03-.07-.25-.01-.03-.07-.24-.01-.03-.07-.24-.01-.03-.07-.24v-.03l-.07-.25-.01-.03-.07-.25-.01-.03-.06-.24-.01-.02-.07-.25-.01-.03-.06-.25v-.02l-.06-.25-.01-.03-.06-.25v-.03l-.06-.25v-.02l-.06-.25-.01-.03-.06-.25v-.03l-.06-.25-.01-.02-.06-.25-.01-.03-.06-.25-.01-.03-.06-.25-.01-.02-.05-.25v-.1l-.05-.25v-.03l-.05-.25-.01-.03-.05-.25-.01-.02-.05-.25-.01-.03-.05-.25-.01-.03-.05-.25-.01-.03-.05-.25-.01-.03-.04-.25v-.03l-.04-.25-.01-.03-.04-.25v-.03l-.04-.26-.01-.02-.04-.26-.01-.03-.04-.26v-.03l-.04-.25-.01-.03-.03-.25-.005-.02-.04-.26-.01-.03-.03-.26v-.03l-.03-.26V278l-.03-.26-.01-.03-.03-.25v-.03l-.03-.26v-.03l-.03-.25v-.02l-.03-.26-.01-.03-.02-.26-.01-.03-.028-.26-.01-.03-.02-.26-.01-.03-.02-.26-.01-.03-.02-.26v-.03l-.02-.25v-.03l-.02-.26v-.03l-.02-.26v-.03l-.02-.26v.02l-.02-.26v-.03l-.01-.26v-.03l-.02-.26v-.03l-.01-.26v-.03l-.01-.26v-.03l-.02-.26v-.03l-.01-.26v-.1l-.01-.26v-.02l-.01-.26v-.03l-.01-.26v-.1l-.01-.26v-.025l-.01-.26v-.03l-.01-.26v-.03l-.01-.26V148.61l.01-.31v-.35l.01-.3v-.36l.01-.3.01-.3v-.03l.01-.3v-.03l.02-.3v-.023l.01-.31v-.03l.02-.31v-.03l.01-.3V145l.02-.3v-.03l.02-.3v-.03l.02-.3v-.03l.02-.3v-.03l.02-.3v-.03l.02-.3v-.03l.03-.3.01-.03.02-.3v-.03l.03-.3.01-.026.03-.3v-.028l.023-.3v-.02l.03-.3v-.03l.03-.3v-.03l.03-.3v-.02l.04-.3v-.03l.04-.3v-.03l.04-.3v-.02l.03-.3v-.03l.04-.29v-.03l.04-.29v-.02l.04-.29v-.02l.05-.3v-.03l.04-.29.01-.03.04-.3v-.03l.044-.3.01-.02.04-.29v-.02l.05-.29.01-.03.05-.292v-.02l.05-.29.01-.03.05-.29.01-.03.05-.3v-.03l.06-.292.01-.03.05-.29.01-.025.05-.29.01-.02.06-.29.01-.03.06-.29v-.03l.06-.29.01-.03.06-.29.01-.02.06-.29.01-.026.06-.29v-.03l.07-.29v-.02l.07-.29.01-.03.06-.29.01-.03.07-.29v-.02l.07-.29v-.03l.07-.29v-.03l.07-.29.01-.03.07-.29.01-.02.07-.29.01-.03.07-.29.01-.03.08-.29.006-.03.08-.28.01-.03.08-.29.01-.02.08-.28.01-.02.08-.29.01-.03.08-.28v-.02l.08-.29.01-.03.08-.28.01-.03.08-.29.01-.02.09-.28.01-.03.09-.28.01-.02.09-.28.01-.03.09-.28v-.02l.09-.28.01-.02.1-.28.01-.03.09-.28.01-.03.1-.28v-.02l.09-.28.01-.03.09-.28.01-.03.09-.28.01-.03.1-.28.01-.02.1-.28.01-.02.1-.28.01-.02.1-.27.01-.03.11-.28.01-.02.1-.27.01-.03.1-.28.01-.02.1-.28.01-.03.1-.28.01-.03.11-.28.01-.02.11-.27.01-.02.11-.27.01-.02.11-.27.01-.03.11-.27.01-.02.11-.27.01-.03.12-.28.01-.02.11-.27.02-.03.12-.27.01-.02.12-.27.01-.03.12-.27.01-.02.12-.27.01-.02.12-.27.01-.02.12-.27.01-.02.12-.27.01-.03.12-.27.01-.02.12-.26.01-.03.13-.26.01-.02.13-.26.01-.03.13-.27.01-.03.13-.26.01-.02.13-.26.01-.03.13-.27.01-.02.13-.26.02-.02.13-.27.01-.02.13-.26.01-.03.14-.26.01-.02.13-.26.01-.03.14-.26.01-.02.14-.26.01-.03.14-.26.01-.02.14-.26.02-.02.14-.25.01-.02.14-.26.02-.02.14-.25.01-.02.15-.26.01-.02.15-.26.01-.03.14-.26.02-.02.15-.26.01-.02.15-.25.02-.02.15-.25.01-.03.15-.25.02-.02.15-.25.01-.02.15-.25.01-.02.15-.25.017-.02.15-.25.01-.02.15-.25.01-.02.16-.25.01-.02.16-.25.02-.03.15-.25.02-.02.16-.25.01-.02.16-.25.02-.03.16-.25.01-.02.16-.24.02-.02.16-.24.01-.02.17-.24.01-.03.16-.24.02-.03.16-.25.02-.02.17-.24.02-.02.17-.24.02-.02.17-.24.01-.02.17-.24.02-.02.17-.24.02-.02.17-.23.01-.02.17-.24.02-.02.18-.24.01-.02.17-.23.01-.02.18-.23.02-.03.17-.24.02-.02.18-.24.01-.02.18-.23.02-.02.18-.23.02-.02.18-.24.01-.02.18-.23.02-.02.18-.24.02-.02.188-.23.02-.02.18-.23.02-.02.19-.23.01-.02.19-.23.02-.02.19-.23.02-.02.19-.23.02-.02.19-.22.02-.02.19-.23.02-.02.19-.22.02-.02.19-.22.02-.02.2-.22.02-.02.2-.23.02-.02.19-.22.01-.02.2-.22.02-.02.2-.22.02-.02.2-.22.01-.02.2-.22.02-.02.2-.22.01-.01.2-.21.02-.03.2-.22.02-.02.2-.21.02-.02.21-.21.02-.02.21-.22.02-.02.21-.21.02-.02.21-.22.02-.02.2-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.01.21-.21.02-.02.21-.21.02-.02.22-.21.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.19.02-.02.22-.19.02-.02.22-.2.02-.02.23-.19.02-.02.23-.19.02-.02.22-.19.02-.02.23-.19.02-.02.22-.2.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.24-.19.02-.01.23-.18.02-.02.24-.18.02-.02.23-.19.03-.02.24-.19.02-.02.23-.18.02-.01.24-.18.02-.02.23-.18.03-.02.24-.18.02-.02.24-.18.02-.02.24-.18.02-.02.24-.18.02-.01.24-.17.02-.01.24-.18.02-.02.24-.18.02-.02.24-.18.02-.02.25-.17.02-.02.24-.17.02-.02.25-.17.02-.01.25-.17.02-.02.25-.17.03-.01.246-.17.03-.02.25-.17.02-.02.25-.17.02-.01.25-.17.03-.02.25-.16.02-.01.25-.16.02-.02.25-.16.02-.02.26-.17.02-.01.26-.16.02-.01.25-.16.02-.01.26-.16.02-.02.26-.16.02-.01.26-.16.02-.02.26-.16.03-.01.25-.15.02-.01 96-57.54h.015l.21-.12.03-.02.21-.12.02-.01.22-.12.02-.01.22-.12.02-.02.22-.12.02-.02.22-.13.02-.01.22-.12.02-.02.22-.12.02-.02.22-.12.02-.02.22-.12.02-.01.22-.12.03-.01.22-.12.02-.01.22-.11.03-.01.22-.11.02-.01.22-.11.02-.02.22-.12.03-.01.22-.11.03-.01.22-.11.03-.01.23-.11.02-.01.22-.11.02-.02.23-.1.02-.02.23-.11.02-.02.22-.1.03-.01.23-.11.02-.01.23-.1.03-.01.22-.11.03-.01.23-.1.03-.01.23-.11.02-.01.23-.11.02-.01.23-.1.02-.01.23-.1.03-.01.23-.1.02-.01.23-.1.03-.01.23-.1.02-.01.23-.09.03-.01.23-.1.03-.01.23-.09.02-.01.23-.1.02-.01.23-.09.02-.01.23-.1.03-.01.23-.09.03-.01.23-.08.02-.01.23-.09.02-.01.23-.08.03-.01.23-.08h.02l.23-.09.03-.01.23-.09.03-.01.23-.08.03-.01.24-.08.02-.01.23-.08.03-.01.23-.08.02-.01.23-.08.02-.01.24-.08.02-.01.23-.08.03-.01.23-.07.03-.01.23-.07.03-.01.23-.08.03-.01.24-.07.02-.01.24-.07.03-.01.23-.07.03-.01.24-.07.03-.01.24-.07.03-.01.23-.07h.02l.24-.06.02-.01.24-.06.03-.01.24-.07.03-.01.23-.06.02-.01.24-.06.03-.01.24-.06h.03l.24-.06.03-.01.24-.06.03-.01.23-.06.03-.01.24-.06.03-.01.24-.06.02-.01.24-.06.03-.01.24-.06h.03l.24-.05.03-.01.24-.05.03-.01.24-.06h.03l.24-.05.03-.01.24-.05.03-.01.24-.05h.02l.24-.05.03-.01.24-.05.03-.01.24-.04.02-.01.24-.04.03-.01.24-.04.03-.01.24-.04h.03l.24-.04.03-.01.24-.04.03-.01.24-.04h.03l.24-.04h.03l.24-.04h.03l.24-.04h.03l.24-.03.03-.01.24-.03h.02l.24-.03h.03l.25-.03.02-.01.24-.03h.03l.24-.03h.03l.24-.03h.03l.25-.03h.03l.24-.02h.03l.24-.03h.03l.24-.02h.03l.24-.02.03-.01.24-.02h.03l.24-.02h.03l.24-.02h.03l.24-.02.03-.01.24-.02h.02l.24-.02h.03l.25-.02h.03l.24-.02h.02l.24-.02h.02l.24-.01h.03l.24-.01h.03l.25-.01h.04l.24-.02h.03l.24-.01h.03l.24-.01h.03l.24-.01h.57l.24-.01h1.62zm-.22 27l-.16.002h-.162l-.16.002-.16.003-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.02-.16.02-.16.01-.158.01-.16.02-.16.02-.16.02-.16.02-.158.02-.16.02-.16.02-.157.02-.16.02-.16.02-.158.03-.16.02-.16.03-.16.03-.16.03-.16.02-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.03-.16.04-.16.04-.16.04-.16.04-.15.04-.16.04-.16.04-.16.04-.16.05-.15.05-.15.04-.16.05-.16.05-.16.05-.16.05-.16.04-.15.05-.16.05-.16.05-.16.05-.15.05-.16.05-.16.05-.15.05-.15.05-.15.05-.15.06-.16.06-.16.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.07-.15.07-.15.07-.15.07-.14.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.07-.15.08-.15.07-.15.07-.15.08-.15.07-.15.07-.15.08-.14.08-.14.07-.14.08-.15.08-.14.08-.14.08-.14.08-.15.08-.15.08-.14.08-.14.08-.15.08-.14.08-.16.09-95.95 57.55-.2.12-.19.12-.19.12-.19.12-.19.12-.19.11-.18.12-.18.12-.18.12-.18.12-.19.12-.18.12-.18.12-.18.13-.18.12-.18.13-.18.12-.18.13-.18.13-.18.13-.18.13-.18.13-.17.13-.18.13-.17.13-.18.13-.18.13-.17.13-.18.13-.17.14-.17.13-.17.13-.17.14-.17.13-.17.13-.17.14-.17.14-.16.14-.17.14-.16.14-.16.14-.16.14-.16.15-.16.14-.17.14-.16.15-.16.14-.16.14-.16.14-.16.15-.16.15-.16.15-.16.15-.15.15-.16.15-.16.15-.15.15-.15.15-.15.15-.15.15-.15.15-.15.16-.15.15-.15.15-.15.16-.15.16-.14.16-.14.16-.15.16-.14.16-.15.16-.15.16-.14.15-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.14.16-.13.17-.14.17-.14.17-.13.16-.13.17-.14.17-.13.16-.13.17-.13.17-.13.17-.13.17-.12.17-.13.17-.12.17-.13.17-.13.17-.13.17-.13.17-.12.18-.12.17-.13.17-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.18-.11.19-.11.18-.11.18-.1.18-.11.19-.11.19-.1.18-.11.19-.1.19-.1.19-.1.19-.1.19-.1.19-.1.19-.1.19-.1.19-.09.19-.09.19-.09.19-.09.19-.09.19-.09.2-.09.19-.09.19-.09.19-.09.2-.09.19-.09.19-.09.2-.09.19-.08.2-.08.2-.08.19-.08.2-.08.2-.08.2-.08.19-.08.2-.08.2-.08.2-.07.2-.07.2-.08.2-.08.2-.08.2-.07.2-.08.2-.07.2-.07.2-.07.21-.07.2-.07.2-.07.2-.07.2-.07.21-.07.2-.07.21-.07.2-.06.2-.06.21-.06.21-.06.2-.06.21-.06.21-.05.21-.05.21-.06.21-.05.21-.06.21-.05.21-.05.21-.05.21-.05.21-.05.21-.05.21-.05.21-.05.21-.04.21-.05.21-.04.21-.05.21-.05.21-.04.21-.04.21-.05.21-.04.22-.04.21-.04.21-.04.21-.04.21-.04.21-.03.21-.03.21-.03.21-.03.22-.04.21-.03.21-.03.21-.03.21-.03.21-.03.21-.03.22-.02.22-.03.21-.02.22-.03.21-.02.22-.02.22-.02.21-.02.22-.02.22-.02.22-.02.22-.02.22-.02.22-.02.22-.01.22-.01.22-.02.22-.01.22-.01.22-.01.22-.01.22-.01.21v.22l-.01.22v.44l-.01.22v121.16l.01.18.01.18.01.18.01.17.01.18.01.18.01.18.01.18.01.17.01.18.01.17.01.18.01.18.01.17.01.17.01.17.01.18.02.17.02.17.02.17.02.17.02.18.02.18.02.17.02.18.02.17.02.17.03.17.03.17.03.18.02.17.02.18.03.17.03.17.03.17.03.17.03.17.03.17.03.18.03.17.03.17.03.17.03.17.03.17.04.17.04.16.04.16.04.18.04.17.04.17.04.17.04.17.04.16.04.17.04.16.04.17.05.17.04.17.05.17.05.17.04.17.05.16.05.17.05.17.05.16.05.17.05.17.05.17.05.17.05.17.05.16.05.17.05.17.05.16.06.16.06.16.06.17.05.16.06.16.06.17.06.16.06.16.06.16.06.16.07.16.06.16.07.16.06.16.06.16.06.16.07.16.07.16.07.16.07.16.07.16.07.16.06.16.07.16.07.15.07.16.07.16.08.16.07.15.07.15.08.16.08.16.07.15.08.15.08.15.08.16.08.15.08.15.08.16.08.15.08.15.08.15.08.15.08.15.08.15.08.15.09.15.09.15.08.15.08.15.09.15.09.15.09.15.09.14.09.15.09.15.09.15.09.14.1.14.09.15.09.15.09.15.09.14.1.14.1.15.1.14.1.15.09.14.09.15.1.14.1.14.1.14.1.14.1.14.1.14.1.14.11.14.1.14.1.13.11.14.1.14.1.13.11.13.11.14.11.13.11.13.1.13.11.13.11.13.1.14.11.13.11.13.11.13.11.13.11.13.11.13.12.13.11.13.11.13.12.13.11.13.12.13.12.13.11.13.12.12.12.13.11.12.12.12.12.13.12.13.12.13.12.12.12.12.12.12.12.12.13.12.12.12.12.12.13.12.12.12.13.12.12.12.13.11.13.12.13.11.13.12.13.12.13.11.13.11.13.11.13.11.13.11.13.11.14.12.14.11.13.11.13.11.13.11.13.11.14.11.13.11.13.11.13.11.14.11.13.1.14.11.14.1.14.1.14.1.14.11.14.11.14.1.14.11.14.1.14.1.15.11.14.1.14.1.15.1.15.1.14.1.14.09.15.09.14.09.15.1.14.09.15.1.15.09.15.1.15.09.15.09.15.09.15.09.15.09.15.09.17.1 104.7 61.21.13.07.12.06.12.07.12.07.12.06.11.06.12.07.12.06.12.07.12.06.11.06.12.06.12.07.12.06.12.06.12.06.11.06.12.06.12.06.12.06.12.06.12.06.12.05.12.06.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.13.05.12.05.12.05.12.05.12.05.12.04.12.04.12.05.13.05.12.05.12.04.12.04.13.04.12.04.12.04.12.04.11.03.26.08.25.08.25.08.25.08.25.07.25.07.25.07.25.06.25.06.25.06.25.06.25.06.25.05.25.06.26.05.26.05.25.04.26.04.25.04.25.04.25.04.26.04.25.04.26.03.25.03.25.03.26.02.25.02.26.02.25.02.26.02.26.01.26.01.26.01.26.01.25.01.26.01h.26l.26.01h.26l.25-.01h.26l.26-.01.26-.01.25-.01.26-.01.26-.01.26-.01.26-.02.25-.02.26-.02.25-.03.26-.03.25-.03.26-.03.26-.03.25-.04.26-.04.25-.04.25-.04.25-.04.25-.04.26-.05.26-.05.25-.05.25-.06.26-.06.26-.06.25-.06.26-.06.25-.07.25-.07.25-.07.25-.07.25-.07.26-.08.12-.03.13-.04.12-.04.12-.04.12-.04.12-.04.12-.04.12-.04.12-.04.12-.05.12-.04.12-.04.12-.05.12-.04.12-.05.12-.04.12-.04.13-.04.12-.04.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.06.12-.06.12-.05.12-.05.12-.06.12-.06.12-.06.12-.06.12-.05.12-.06.12-.06.12-.06.12-.05.12-.06.12-.06.11-.06.12-.06.12-.06.12-.06.12-.07.11-.06.12-.06.12-.07.13-.07 115.93-64.56.13-.07.12-.07.12-.07.13-.07.12-.07.12-.07.12-.07.12-.07.12-.07.12-.07.12-.08.12-.07.12-.08.12-.08.12-.07.12-.07.11-.07.11-.08.12-.08.11-.08.11-.08.12-.08.12-.08.11-.08.11-.07.12-.08.12-.08.12-.08.11-.08.11-.08.11-.08.11-.09.12-.08.11-.09.1-.08.11-.09.11-.08.11-.09.11-.09.11-.09.1-.08.1-.09.11-.09.11-.09.11-.09.11-.09.1-.09.11-.09.11-.09.1-.09.1-.09.11-.09.1-.09.1-.09.1-.1.1-.09.1-.09.11-.09.1-.09.1-.09.1-.09.1-.09.1-.1.1-.09.1-.1.1-.1.1-.1.1-.1.1-.1.09-.09.1-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.09-.1.1-.11.09-.1.09-.1.09-.1.09-.1.09-.1.09-.11.09-.1.09-.11.09-.1.09-.11.08-.1.09-.1.09-.1.08-.11.09-.1.09-.11.08-.1.08-.1.08-.11.08-.11.08-.11.09-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.11.08-.12.08-.11.08-.11.08-.11.07-.11.07-.11.08-.12.08-.11.07-.11.08-.12.08-.11.07-.12.08-.12.07-.11.07-.11.07-.11.07-.12.08-.12.07-.11.07-.12.07-.12.06-.12.06-.12.07-.11.06-.12.07-.12.07-.12.06-.12.07-.12.06-.12.06-.12.06-.12.06-.12.06-.12.06-.13.06-.12.06-.12.06-.13.06-.12.06-.12.06-.13.05-.12.06-.12.06-.13.05-.13.05-.12.05-.13.05-.12.06-.12.05-.13.06-.13.05-.12.06-.13.05-.13.05-.13.06-.12.05-.12.05-.13.05-.13.05-.12.05-.13.05-.13.05-.13.04-.13.05-.13.05-.13.05-.12.05-.13.05-.13.04-.13.04-.13.05-.13.04-.13.05-.13.04-.13.04-.13.04-.13.05-.14.04-.13.04-.13.04-.13.04-.12.04-.13.04-.14.03-.13.04-.12.04-.14.03-.14.03-.13.03-.14.04-.13.03-.14.04-.13.03-.14.03-.13.03-.13.03-.13.03-.13.03-.13.03-.13.03-.14.02-.13.03-.14.03-.14.03-.14.03-.13.02-.14.02-.14.03-.13.02-.14.02-.14.02-.13.02-.13.02-.14.02-.14.02-.13.02-.14.02-.14.02-.13.02-.14.02-.14.02-.14.02-.13.02-.15.01-.14.02-.13.01-.13.02-.14.01-.14.01-.14.01-.14.01-.14.01-.14.01-.14v-.29l.01-.14.01-.14.01-.14.01-.14.01-.13.01-.15.01-.14v-.14l.01-.14v-138l-.01-.13V136l-.01-.13v-.25l-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.12-.01-.13-.01-.12-.01-.12-.01-.12-.02-.13-.01-.14-.01-.12-.01-.13-.02-.13-.02-.13-.01-.12-.02-.13-.02-.12-.02-.13-.02-.13-.02-.12-.02-.12-.02-.12-.02-.12-.02-.12-.02-.12-.02-.12-.02-.11-.05-.26-.05-.25-.05-.24-.06-.25-.06-.24-.05-.24-.06-.25-.06-.25-.06-.24-.07-.24-.07-.24-.07-.24-.07-.24-.08-.24-.08-.24-.07-.24-.07-.24-.08-.24-.09-.24-.08-.23-.08-.24-.08-.23-.09-.23-.09-.23-.09-.23-.09-.23-.1-.23-.09-.23-.1-.23-.1-.23-.1-.22-.11-.23-.11-.22-.11-.22-.11-.228-.12-.22-.11-.23-.12-.22-.12-.22-.12-.22-.12-.216-.12-.22-.13-.22-.13-.21-.13-.21-.13-.21-.13-.22-.14-.21-.14-.21-.14-.21-.14-.21-.14-.21-.14-.2-.15-.2-.15-.2-.15-.2-.15-.2-.16-.2-.15-.195-.15-.2-.16-.19-.16-.2-.16-.19-.16-.19-.16-.19-.17-.19-.17-.19-.17-.18-.17-.18-.17-.19-.17-.18-.17-.18-.17-.18-.18-.18-.18-.18-.17-.17-.18-.18-.19-.17-.19-.17-.19-.17-.18-.17-.19-.17-.19-.16-.2-.17-.09-.08-.1-.09-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.09-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.07-.1-.07-.1-.08-.1-.07-.11-.07-.1-.08-.11-.08-.1-.07-.11-.08-.1-.08-.11-.07-.11-.07-.1-.07-.11-.07-.1-.07-.11-.07-.11-.07-.11-.07-.11-.07-.11-.07-.1-.07-.11-.07-.11-.06-.11-.07-.11-.07-.11-.07-.11-.07-.11-.06-.11-.07-.11-.07-.12-.07L956.7 45.4l-.16-.09-.15-.08-.15-.08-.14-.08-.15-.08-.14-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.08-.15-.07-.15-.07-.14-.077-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.14-.07-.15-.07-.15-.07-.15-.07-.15-.06-.15-.07-.15-.06-.15-.07-.15-.06-.16-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.16-.05-.15-.05-.15-.05-.15-.05-.15-.05-.16-.05-.16-.05-.15-.05-.15-.05-.15-.05-.15-.05-.15-.05-.16-.05-.16-.043-.16-.05-.15-.05-.16-.05-.16-.05-.16-.04-.16-.05-.15-.04-.16-.04-.15-.05-.16-.04-.156-.04-.16-.04-.16-.04-.155-.04-.16-.04-.15-.04-.15-.03-.16-.038-.16-.03-.16-.03-.15-.04-.16-.03-.16-.04-.16-.03-.15-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.028-.16-.023-.16-.03-.16-.02-.16-.03-.15-.02-.16-.02-.16-.02-.16-.03-.16-.03-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.01-.15-.02-.16-.01-.16-.02-.16-.02-.16-.02-.16-.01-.16-.02-.16-.01-.16-.01h-.16l-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01h-.16l-.16-.01-.16-.01h-.32l-.16-.01h-.48z"/>
+  <path fill="#EBB951" d="M1482.54 259.914V137.607c0-15.834-8.486-30.455-22.233-38.312L1346.64 34.333c-16.525-9.444-36.86-9.23-53.18.56l-95.98 57.568c-20.208 12.13-32.574 33.96-32.574 57.53v119.52c0 19.94 10.58 38.38 27.793 48.44 29.94 17.51 77.02 45.02 104.71 61.21 13.92 8.14 31.11 8.32 45.2.47l115.94-64.57c14.8-8.24 23.97-23.85 23.97-40.79v-14.35z"/>
+  <path fill="#FCD804" d="M1320.656 13.897h.27l.243.003h.02l.24.004h.03l.24.004h.03l.24.005h.02l.24.007h.02l.24.007h.02l.24.01h.03l.24.01h.03l.24.01h.03l.24.012h.03l.24.01h.02l.24.01h.02l.24.01h.03l.24.01h.03l.25.01h.03l.24.02h.03l.24.01h.03l.24.02h.03l.24.02h.03l.24.02h.03l.24.02h.03l.24.02h.02l.24.02h.03l.24.03h.02l.24.02h.03l.24.02h.03l.24.03h.03l.24.03.03.01.24.03h.03l.24.03h.03l.25.03h.02l.24.03h.03l.24.03h.02l.24.03h.03l.24.03h.02l.24.03h.03l.24.04h.03l.24.03.02.01.24.04h.03l.24.04.03.01.24.04h.03l.24.04h.03l.24.04h.03l.24.04h.03l.24.04h.03l.24.05.03.01.24.04h.03l.24.05.03.01.24.05.03.01.24.05.03.01.24.05.03.01.24.05.03.01.24.05h.03l.24.05h.02l.24.06h.03l.24.05.03.01.23.06.02.01.24.06h.03l.24.06.03.01.23.06.03.01.23.06.03.01.24.06h.03l.23.06h.03l.24.07h.02l.24.07h.03l.24.07.03.01.24.07h.03l.23.07h.03l.23.07.03.01.23.07.03.01.23.07.03.01.23.07.03.01.23.08.02.01.23.07.03.01.24.08.02.01.24.08.03.01.24.08.03.01.23.08h.02l.23.08.03.01.23.08.02.01.23.08.02.01.23.08.03.01.23.08.03.01.23.08.02.01.23.09.02.01.23.08.03.01.23.09.02.01.23.09.03.01.23.09.02.01.23.09.03.01.23.09.02.01.23.09.03.01.23.09.03.01.23.09.03.01.23.09.02.02.23.09.02.01.23.09.02.01.23.1.03.01.23.1.02.01.23.1.02.01.22.1.02.01.23.11.02.01.23.1.02.01.22.1.02.01.22.11.03.01.22.11.03.01.22.11.03.01.23.11.03.02.23.11.02.01.22.11.03.01.22.11.03.01.22.11.03.01.22.11.03.01.23.12.03.01.22.11.02.02.22.12.02.01.22.12.03.02.22.12.03.01.22.12.02.02.22.12.02.02.22.12.02.01.22.12.03.02.22.12.03.02.22.13 113.68 65 .19.11.02.02.18.11.02.01.19.11.03.01.18.11.02.01.18.11.03.01.18.11.02.01.18.11.03.01.18.11.02.02.18.12.03.02.18.11.02.01.18.12.02.01.18.11.02.01.18.11.02.02.18.12.02.01.17.12.03.02.18.12.02.01.18.11.03.02.17.12.02.02.17.12.03.01.17.12.02.02.17.12.02.01.17.12.02.02.17.12.02.02.17.12.03.02.17.13.02.02.17.12.02.01.17.12.02.02.17.12.02.02.17.12.02.01.17.12.02.02.17.13.02.01.17.13.02.02.16.13.02.01.17.13.02.02.17.13.03.02.16.12.02.01.16.13.02.02.16.13.02.02.17.14.02.02.16.13.02.02.16.13.02.02.16.14.02.02.16.14.02.02.16.14.03.03.31.27.04.04.31.27.04.04.32.28.04.03.31.28.04.04.31.28.04.04.31.28.04.04.31.29.04.04.3.29.04.04.3.29.04.04.3.29.04.04.3.3.04.04.29.3.04.04.29.3.04.04.28.3.04.04.28.3.04.04.28.31.04.04.28.31.04.04.28.31.03.04.27.32.03.04.27.31.04.04.27.31.04.04.27.32.03.04.27.32.04.05.26.32.03.04.26.33.03.04.26.33.03.05.25.33.03.04.25.33.03.05.24.33.03.04.24.33.03.04.24.34.03.05.23.34.03.04.24.34.03.05.23.34.03.04.23.35.03.05.22.34.03.05.22.35.03.04.22.35.03.05.22.35.03.05.22.36.03.04.21.36.03.05.21.36.03.05.21.35.02.05.2.37.02.05.2.36.02.05.2.36.03.05.19.36.03.05.19.37.02.05.19.37.03.05.19.37.02.05.19.37.02.05.18.37.02.05.18.37.03.05.17.37.02.05.17.38.03.05.17.38.02.05.16.38.02.05.16.38.02.05.16.38.02.05.15.39.02.05.15.39.02.05.15.39.02.06.14.39.02.05.14.39.02.05.14.39.02.05.14.39.01.05.13.39.02.05.13.39.02.05.13.4.01.05.12.39.01.05.13.4.01.05.11.4.02.05.11.4.01.05.11.4.02.05.11.4.01.05.11.41.01.06.1.4.02.06.1.4.01.06.09.41.01.05.09.4.01.06.09.41.01.05.08.41.01.06.08.41.01.05.08.41v.05l.04.21.01.02.04.2.01.03.04.21.01.03.03.2.01.03.03.21v.02l.04.21v.03l.03.21v.03l.03.21v.02l.03.21.01.03.03.21v.03l.03.21.01.03.03.21v.04l.03.21.01.02.03.21v.02l.03.21v.03l.03.2v.02l.03.21.01.03.02.21v.03l.02.21v.03l.02.21v.03l.02.21v.03l.02.21v.03l.02.21v.03l.02.21.01.03.02.21v.03l.02.21v.02l.01.21v.03l.02.21v.02l.01.21v.04l.01.22v.02l.01.21v.03l.02.21v.04l.01.21v.03l.01.21v.02l.01.21v.03l.01.22v.26l.01.22v.03l.01.21v.27l.01.21V275l-.01.23v.27l-.01.22v.03l-.01.22v.03l-.01.23v.03l-.01.23v.03l-.01.23-.01.03-.01.23v.03l-.01.23v.03l-.02.227v.02l-.01.227v.04l-.02.23v.03l-.02.227v.03l-.02.22v.03l-.02.22v.04l-.02.23v.03l-.02.23-.01.03-.02.22-.01.03-.02.22v.03l-.02.22v.03l-.02.23v.02l-.02.22-.01.03-.02.23-.01.03-.03.22v.03l-.03.22v.03l-.03.22v.03l-.03.22v.03l-.03.23-.01.03-.03.22v.03l-.03.22-.01.03-.03.22v.02l-.03.22-.01.03-.03.22v.03l-.03.22-.01.03-.03.23-.01.04-.04.22v.02l-.04.22-.01.03-.04.22v.03l-.04.22v.02l-.04.22v.03l-.04.22-.01.03-.04.21-.01.03-.05.22v.02l-.05.22-.01.03-.04.22-.01.02-.05.21v.03l-.05.22v.03l-.05.22-.01.03-.04.22v.02l-.05.22-.01.03-.05.22v.02l-.05.22-.01.03-.05.22-.01.03-.05.22-.01.03-.05.21-.01.02-.05.21-.01.03-.06.22-.01.03-.06.21-.01.02-.06.22-.01.03-.06.21-.01.03-.06.21-.01.03-.06.21v.03l-.06.21-.01.03-.06.21-.01.02-.06.21-.01.02-.07.22-.01.03-.07.22v.02l-.06.21-.01.02-.07.21-.01.03-.07.21-.01.02-.07.21-.01.03-.07.21-.01.03-.07.21-.01.02-.07.2-.01.03-.07.21-.01.03-.07.21-.01.03-.07.21-.01.03-.08.21-.01.02-.08.21-.01.03-.08.2-.01.02-.08.21-.01.02-.07.21-.01.03-.08.2-.01.03-.08.21-.01.02-.08.21-.01.03-.08.21-.01.02-.08.2-.01.03-.08.21-.01.03-.08.21-.01.03-.09.2-.01.02-.08.2-.01.03-.08.21-.01.02-.09.2-.01.03-.08.2-.01.03-.09.2-.01.02-.09.2-.01.03-.09.2-.01.03-.09.2-.01.03-.09.2-.01.02-.09.2-.01.03-.09.2-.01.02-.09.2-.01.02-.1.2-.01.03-.09.2-.01.02-.1.2-.01.03-.1.2-.01.03-.1.2-.01.02-.1.19-.01.02-.1.2-.01.02-.1.2-.02.03-.1.2-.02.02-.1.2-.01.02-.1.19-.01.02-.1.19-.01.03-.1.19-.02.02-.1.19-.02.03-.1.19-.01.03-.11.2-.01.02-.11.19-.02.03-.11.19-.01.03-.1.19-.02.02-.11.19-.01.03-.11.19-.01.02-.11.19-.01.02-.11.19-.02.02-.11.19-.02.03-.12.19-.01.03-.11.19-.02.02-.11.19-.01.02-.11.19-.01.02-.12.18-.02.03-.12.18-.01.02-.11.18-.02.02-.12.19-.02.02-.12.19-.01.02-.12.18-.02.02-.12.18-.02.02-.12.19-.02.02-.12.18-.02.03-.12.18-.01.02-.12.18-.01.02-.12.19-.01.02-.12.18-.02.02-.12.18-.01.03-.13.18-.01.02-.13.18-.01.02-.13.18-.01.02-.13.18-.01.02-.13.18-.02.03-.13.18-.02.02-.13.17-.02.02-.13.17-.02.02-.14.18-.02.03-.13.18-.02.02-.13.18-.02.02-.13.18-.02.02-.13.18-.02.02-.13.17-.02.02-.14.18-.01.02-.13.17-.02.02-.14.18-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.17-.02.02-.14.16-.01.02-.14.17-.02.03-.14.17-.02.02-.14.17-.02.02-.14.16-.02.02-.14.16-.02.02-.14.17-.02.02-.15.17-.02.02-.15.16-.02.02-.15.16-.02.02-.15.16-.02.02-.15.17-.02.02-.15.17-.01.02-.15.16-.02.03-.15.16-.02.02-.15.16-.02.02-.16.16-.02.02-.15.16-.02.02-.15.16-.02.02-.16.15-.02.02-.16.16-.02.02-.16.16-.02.02-.16.16-.02.02-.16.15-.02.02-.16.16-.02.02-.16.15-.02.01-.16.15-.02.02-.16.16-.02.02-.16.15-.02.02-.16.15-.02.02-.16.15-.03.02-.17.15-.02.02-.16.15-.03.02-.17.15-.02.02-.16.15-.02.01-.16.15-.02.02-.16.15-.02.02-.17.14-.02.02-.17.15-.02.02-.17.15-.02.02-.17.15-.02.02-.17.14-.02.02-.17.15-.02.02-.17.14-.02.02-.17.14-.03.02-.17.14-.02.02-.17.14-.02.02-.17.14-.02.02-.18.14-.02.01-.17.14-.02.02-.18.14-.02.02-.18.13-.02.02-.18.13-.02.02-.18.14-.02.02-.18.13-.02.02-.17.13-.02.01-.18.13-.02.02-.18.13-.02.02-.19.13-.02.02-.18.13-.02.01-.19.13-.03.02-.18.13-.02.01-.19.12-.02.02-.19.13-.02.01-.18.13-.03.02-.19.13-.03.02-.19.13-.02.01-.18.12-.02.02-.19.13-.02.02-.19.13-.02.02-.19.13-.02.01-.19.13-.02.01-.19.13-.02.02-.19.12-.02.02-.19.12-.02.02-.19.12-.02.01-.19.11-.03.02-.19.12-.03.01-.19.12-.02.02-.19.12-.03.01-.19.12-.02.01-.2.11-.03.01-.2.11-.02.01-.2.11-.03.01-.2.11-.03.01-.2.11-.03.01-.2.11-.02.02-.19.11-.01.01-115.96 64.58-.01.01-.19.1-.03.02-.19.1-.02.01-.19.11-.03.01-.19.1-.02.01-.19.11-.02.02-.19.1-.03.02-.2.1-.03.01-.19.1-.02.01-.19.1-.03.01-.2.09-.02.01-.19.09-.02.01-.19.1-.03.02-.2.09-.02.01-.2.1-.03.01-.19.09-.02.01-.19.09-.03.01-.2.09-.02.01-.2.09-.03.02-.2.09-.03.01-.2.09-.03.01-.2.09-.03.01-.2.09-.03.01-.19.08-.03.01-.19.08-.03.01-.2.09-.02.01-.19.08-.03.01-.2.08-.02.01-.2.09-.03.01-.2.08-.02.01-.2.08-.03.01-.2.08-.02.01-.2.08-.03.01-.2.08-.02.01-.19.08-.02.01-.2.08-.03.01-.2.07-.03.01-.2.07-.03.01-.2.08-.02.01-.2.07-.02.01-.2.07-.02.01-.2.07-.03.01-.21.07-.02.01-.2.07-.03.01-.2.07-.03.01-.2.07-.03.01-.2.07-.02.01-.2.07-.03.01-.2.06-.03.01-.2.06-.02.01-.2.07-.21.06-.03.01-.21.06-.04.01-.4.12-.05.02-.41.12-.05.02-.41.11-.05.01-.41.11-.06.01-.41.11-.05.01-.41.11-.05.01-.41.1-.05.01-.41.1-.05.02-.41.09-.05.01-.41.09-.06.01-.41.09-.05.01-.41.08-.05.01-.41.08-.05.01-.42.08-.05.01-.42.08-.05.01-.41.07-.05.01-.42.06-.06.01-.42.07-.05.01-.42.06-.05.01-.42.06-.05.01-.42.06h-.05l-.41.05h-.05l-.42.05-.06.01-.42.04-.06.01-.42.04-.06.01-.42.03-.05.01-.42.03-.05.01-.42.03h-.05l-.42.03h-.04l-.42.03-.06.01-.42.02-.05.01-.42.02-.05.01-.42.01h-.06l-.42.01h-.05l-.42.01h-1.46l-.42-.01h-.05l-.42-.01h-.05l-.42-.01h-.05l-.42-.02h-.05l-.42-.02-.05-.01-.42-.02h-.05l-.42-.03h-.05l-.42-.03h-.06l-.42-.03h-.05l-.42-.04h-.06l-.42-.04h-.05l-.42-.04h-.05l-.42-.05h-.05l-.42-.05-.05-.01-.42-.05h-.05l-.42-.06-.05-.01-.42-.06-.06-.01-.42-.06-.06-.01-.41-.06-.05-.01-.41-.07-.05-.01-.42-.07-.05-.01-.42-.08-.05-.01-.42-.08-.05-.01-.41-.09-.06-.01-.41-.08-.06-.02-.42-.09-.05-.01-.41-.09-.05-.01-.41-.09-.06-.01-.41-.1-.05-.01-.41-.1-.05-.02-.41-.11-.05-.01-.41-.11-.05-.01-.41-.11-.05-.02-.41-.12-.05-.02-.41-.12-.05-.02-.41-.12-.05-.02-.4-.13-.06-.02-.4-.13-.04-.01-.21-.07-.03-.01-.2-.07-.02-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.07-.03-.01-.2-.08-.02-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.07-.02-.01-.2-.08-.03-.01-.2-.07-.03-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.03-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.08-.02-.01-.2-.09-.03-.01-.19-.09-.03-.01-.2-.09-.03-.01-.19-.09-.03-.01-.2-.08-.03-.01-.19-.09-.03-.01-.19-.09-.02-.01-.19-.09-.02-.01-.2-.09-.02-.02-.19-.09-.03-.01-.2-.1-.02-.01-.2-.1-.02-.02-.19-.1-.02-.01-.2-.1-.02-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.1-.03-.01-.19-.11-.02-.01-.19-.1-.02-.01-.19-.11-.02-.01-.19-.1-.02-.02-.19-.11-.02-.02-.19-.11-.02-.01-.19-.11-.03-.01-.19-.11-.03-.01-.18-.1-.01-.01-104.73-61.21h-.02l-.22-.13-.03-.02-.23-.14-.03-.01-.22-.13-.03-.02-.23-.13-.03-.01-.23-.14-.03-.01-.22-.14-.02-.01-.22-.14-.03-.01-.22-.14-.02-.02-.22-.14-.02-.02-.22-.14-.02-.02-.22-.14-.02-.01-.22-.15-.03-.01-.22-.14-.02-.01-.22-.15-.02-.01-.21-.14-.02-.02-.22-.15-.03-.02-.22-.14-.02-.02-.22-.14-.03-.02-.21-.15-.02-.02-.21-.14-.02-.01-.21-.15-.03-.02-.21-.15-.02-.02-.21-.15-.02-.02-.21-.15-.02-.02-.21-.15-.02-.01-.21-.15-.02-.01-.2-.15-.03-.02-.2-.16-.02-.02-.2-.15-.02-.01-.21-.16-.02-.02-.2-.16-.02-.01-.2-.16-.02-.01-.2-.16-.02-.01-.2-.16-.03-.02-.2-.16-.02-.02-.2-.16-.02-.02-.2-.16-.02-.01-.2-.17-.02-.02-.2-.16-.02-.02-.2-.16-.02-.01-.2-.17-.02-.02-.19-.16-.02-.02-.19-.17-.03-.02-.2-.17-.02-.02-.19-.17-.02-.02-.19-.17-.02-.01-.19-.17-.02-.01-.19-.17-.02-.01-.19-.17-.03-.02-.19-.17-.02-.02-.19-.17-.02-.01-.19-.18-.02-.02-.18-.17-.02-.02-.19-.18-.02-.02-.19-.18-.02-.02-.19-.17-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.01-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.18-.18-.02-.02-.17-.18-.02-.02-.18-.18-.02-.01-.17-.19-.02-.03-.18-.19-.02-.02-.18-.19-.02-.02-.18-.18-.02-.02-.17-.19-.01-.02-.18-.19-.02-.02-.17-.19-.02-.02-.17-.18-.02-.02-.17-.19-.02-.03-.17-.19-.02-.02-.17-.19-.02-.02-.17-.19-.02-.02-.16-.19-.02-.02-.17-.2-.02-.02-.17-.19-.02-.03-.17-.19-.02-.02-.16-.19-.01-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.19-.01-.02-.16-.2-.02-.02-.16-.19-.02-.02-.16-.2-.02-.02-.16-.2-.02-.02-.16-.2-.01-.02-.15-.2-.02-.02-.15-.2-.02-.02-.16-.2-.02-.02-.15-.2-.018-.02-.16-.2-.01-.02-.15-.2-.01-.02-.157-.2-.01-.02-.15-.2-.02-.03-.15-.21-.01-.02-.15-.2-.01-.03-.15-.21-.02-.02-.15-.21-.02-.02-.15-.21-.02-.02-.15-.21-.01-.03-.14-.21-.02-.02-.14-.21-.01-.02-.14-.21-.02-.02-.14-.2-.01-.02-.14-.21-.01-.03-.14-.21-.01-.02-.14-.21-.02-.03-.14-.21-.01-.02-.14-.22-.02-.02-.14-.21-.01-.02-.14-.21-.01-.02-.14-.21-.02-.02-.14-.21-.01-.03-.13-.21-.01-.02-.13-.21-.016-.02-.13-.22-.02-.02-.13-.21-.01-.02-.13-.21-.02-.02-.13-.21-.01-.02-.13-.22-.01-.02-.13-.21-.02-.02-.13-.22-.01-.03-.12-.22-.01-.02-.13-.22-.02-.02-.12-.22-.01-.02-.13-.22-.01-.03-.13-.22-.01-.02-.12-.22-.02-.02-.12-.22-.01-.02-.12-.22-.01-.03-.12-.23-.01-.02-.12-.22-.01-.02-.12-.22-.01-.03-.11-.23-.01-.02-.11-.22-.01-.02-.12-.22-.01-.02-.12-.23-.01-.02-.11-.23-.01-.02-.11-.23-.01-.03-.12-.23-.01-.03-.11-.23-.01-.03-.11-.23-.01-.02-.11-.22-.01-.03-.11-.23-.01-.02-.11-.23-.01-.02-.11-.23-.01-.03-.1-.23-.01-.03-.1-.23-.01-.03-.11-.23-.01-.02-.1-.24-.01-.02-.1-.23-.01-.02-.1-.24-.01-.03-.1-.23-.01-.02-.1-.23-.01-.02-.1-.23-.01-.03-.1-.24-.01-.02-.1-.23-.01-.03-.1-.24-.01-.03-.09-.23v-.02l-.09-.24-.01-.03-.1-.24-.01-.03-.09-.24-.01-.03-.09-.24-.01-.02-.09-.24v-.02l-.09-.24-.01-.03-.09-.24-.01-.03-.09-.24-.01-.02-.08-.24-.01-.03-.08-.24-.01-.02-.09-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.02-.08-.24-.01-.03-.08-.25-.01-.02-.08-.24-.01-.02-.07-.24-.01-.03-.07-.24-.01-.03-.08-.24-.01-.03-.08-.24-.01-.03-.07-.25v-.03l-.07-.25-.01-.03-.07-.24V289l-.08-.24-.01-.03-.07-.25-.01-.03-.07-.24-.01-.02-.07-.24-.01-.027-.06-.24-.01-.03-.07-.25v-.03l-.07-.24-.01-.03-.07-.25-.01-.02-.06-.24-.01-.03-.06-.25-.01-.02-.06-.25-.01-.03-.06-.25-.01-.02-.05-.25-.01-.03-.06-.25-.01-.02-.06-.25-.01-.03-.06-.25-.01-.02-.06-.25-.01-.03-.06-.25v-.02l-.05-.25v-.03l-.05-.25-.01-.03-.05-.26-.01-.03-.05-.25v-.02l-.05-.25v-.03l-.05-.25-.01-.03-.05-.25v-.02l-.05-.25-.01-.03-.04-.25-.01-.02-.04-.25v-.03l-.05-.26v-.03l-.04-.26v-.02l-.04-.25v-.03l-.04-.26-.01-.03-.04-.25v-.03l-.04-.25v-.03l-.04-.26v-.03l-.04-.26v.03l-.04-.25-.01-.03-.04-.26v-.02l-.03-.26v-.03l-.03-.26-.01-.03-.03-.26v-.02l-.03-.26v-.03l-.03-.26v-.02l-.03-.26v-.03l-.03-.26v-.03l-.02-.26v-.03l-.03-.26v-.03l-.02-.26v-.03l-.02-.26v-.03l-.02-.25-.02-.26v-.03l-.02-.26v-.02l-.02-.26v-.03l-.02-.26v-.03l-.02-.26-.01-.03-.02-.26v-.03l-.01-.26v-.1l-.01-.26v-.03l-.01-.27v-.03l-.01-.26v-.03l-.01-.256v-.03l-.01-.26v-.03l-.01-.27v-.03l-.01-.26v-.03l-.01-.26v-.03l-.01-.27V149.3l.01-.31v-.69l.01-.3v-.02l.01-.3v-.03l.01-.303v-.03l.01-.306v.02l.01-.3v-.03l.01-.3v-.03l.02-.3v-.02l.01-.3v-.03l.02-.3v-.03l.02-.3v-.02l.02-.3.006-.03.02-.3v-.03l.02-.31v-.03l.03-.3v-.02l.02-.3v-.02l.03-.3v-.03l.03-.3v-.02l.03-.3v-.03l.03-.3v-.03l.03-.3v-.03l.03-.3v-.03l.03-.29.01-.02.04-.29v-.03l.03-.29v-.03l.04-.3v-.02l.04-.3.01-.03.04-.3v-.02l.04-.3.01-.02.04-.3v-.03l.04-.29.01-.02.04-.3.01-.03.05-.29.01-.03.04-.29v-.02l.04-.29.01-.03.05-.29v-.03l.05-.29v-.03l.05-.29.01-.03.05-.3V136l.05-.298.01-.03.05-.295v-.02l.06-.297.01-.03.06-.29v-.03l.06-.29v-.03l.06-.29.01-.03.06-.29v-.026l.06-.29.01-.022.06-.29v-.03l.06-.29v-.02l.07-.29.01-.03.07-.29v-.03l.07-.29.01-.03.07-.29.01-.03.06-.29.01-.03.07-.29v-.03l.07-.29.01-.02.07-.28.01-.03.07-.29.01-.03.07-.29.01-.026.07-.29.01-.03.08-.29.01-.02.07-.28.01-.022.08-.29v-.02l.08-.29.01-.024.08-.28.01-.03.08-.28.01-.03.08-.285.01-.026.08-.29.01-.02.09-.29.01-.03.09-.28v-.03l.09-.28.01-.03.09-.28.01-.03.08-.28.01-.03.09-.28.01-.03.09-.28v-.02l.09-.28.01-.03.1-.28.01-.02.09-.28.01-.03.1-.28.01-.02.1-.28.01-.03.1-.28.01-.03.09-.28.01-.03.1-.28.01-.03.107-.28.01-.02.1-.28.01-.03.11-.27.01-.03.1-.27.01-.03.1-.28.01-.03.1-.27.01-.03.11-.27.01-.03.11-.27.01-.03.11-.27.01-.03.12-.28.01-.02.11-.27.01-.02.11-.27.01-.03.11-.27.01-.03.12-.27.01-.03.12-.27.01-.02.12-.27.01-.03.11-.27.01-.03.12-.27.01-.03.12-.27.01-.02.13-.27.01-.02.13-.26.01-.02.123-.26.01-.03.13-.27.01-.02.13-.26.01-.03.13-.27.01-.02.13-.27.01-.02.13-.27.01-.02.13-.27.01-.02.13-.26.01-.02.14-.27.01-.02.13-.26.01-.03.14-.26.01-.02.14-.26.015-.03.13-.26.01-.03.14-.26.01-.02.14-.26.01-.03.14-.26.01-.02.14-.25.02-.02.14-.26.02-.03.14-.26.01-.02.15-.25.01-.02.15-.25.01-.02.14-.25.02-.03.15-.26.01-.02.15-.26.01-.02.15-.26.01-.02.15-.25.015-.02.15-.26.01-.03.15-.25.01-.02.15-.25.01-.02.15-.25.02-.02.16-.25.01-.03.16-.25.01-.02.16-.25.01-.02.16-.25.01-.02.16-.25.01-.02.16-.25.02-.03.16-.25.01-.02.17-.25.02-.02.16-.25.02-.02.16-.25.02-.02.17-.25.01-.02.16-.24.02-.03.17-.24.01-.02.17-.24.02-.02.17-.24.02-.02.17-.24.02-.02.17-.24.02-.02.17-.24.01-.02.17-.24.01-.02.17-.24.01-.02.18-.24.02-.02.18-.24.01-.02.18-.24.02-.02.18-.23.02-.02.18-.23.02-.02.18-.24.01-.02.18-.24.02-.02.19-.23.02-.02.18-.23.01-.02.18-.23.02-.02.19-.24.02-.02.19-.23.02-.02.18-.23.02-.03.19-.23.02-.02.19-.23.01-.02.19-.23.01-.02.19-.23.02-.03.19-.22.01-.02.2-.22.02-.03.19-.23.01-.02.19-.22.02-.02.19-.23.02-.02.2-.23.01-.02.2-.22.02-.02.19-.22.02-.02.2-.22.02-.02.2-.21.02-.02.2-.22.02-.03.2-.22.02-.02.2-.22.02-.02.2-.22.02-.02.2-.21.02-.02.2-.21.02-.02.2-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.02-.02.21-.21.01-.02.21-.21.02-.02.22-.21.02-.02.21-.2.02-.02.22-.2.02-.02.22-.2.02-.02.22-.21.02-.02.22-.21.02-.02.22-.2.02-.02.22-.2.02-.02.22-.2.02-.01.22-.2.02-.01.22-.2.02-.02.22-.19.02-.02.23-.2.02-.02.23-.2.02-.02.23-.19.02-.02.23-.2.02-.01.23-.2.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.23-.19.02-.02.24-.18.02-.02.23-.18.02-.02.23-.19.02-.01.24-.19.02-.02.24-.19.02-.01.24-.18.02-.02.24-.18.02-.02.24-.18.02-.02.24-.18.02-.01.24-.18.02-.02.24-.18.02-.02.24-.18.03-.01.25-.18.03-.02.24-.18.02-.02.25-.18.02-.01.25-.17.03-.01.24-.17.02-.02.25-.17.02-.02.25-.17.02-.01.25-.17.02-.01.25-.17.02-.01.25-.17.02-.01.25-.16.02-.01.25-.16.03-.02.25-.17.02-.02.26-.16.02-.01.26-.16.02-.01.26-.16.02-.02.26-.16.02-.02.26-.16.02-.02.26-.16.03-.01.26-.16.02-.01.25-.15.01-.01 96-57.57.01-.01.21-.13.02-.02.21-.13.03-.02.21-.13.02-.01.22-.13.02-.01.22-.12.02-.01.22-.12.03-.02.22-.12.02-.02.22-.12.02-.01.21-.12.02-.01.22-.12.02-.01.22-.12.03-.01.22-.12.02-.01.22-.12.03-.01.22-.11.02-.02.22-.11.03-.01.23-.11.03-.02.22-.11.02-.01.22-.11.02-.01.22-.11.02-.02.23-.11.02-.01.23-.11.03-.01.22-.11.02-.01.22-.11.02-.01.22-.11.03-.02.22-.1.03-.01.22-.11.02-.01.23-.1.03-.01.23-.1.02-.02.23-.1.02-.01.23-.1.02-.01.23-.1.02-.01.23-.1.03-.01.22-.1.03-.01.23-.1.02-.01.23-.1.02-.01.23-.09.03-.01.23-.1.03-.01.23-.1.02-.01.23-.09.03-.01.23-.09.03-.01.23-.09.02-.01.23-.09.03-.01.23-.09.03-.01.23-.08.02-.01.23-.09.03-.01.24-.09.03-.01.23-.08.03-.01.23-.08.02-.01.23-.08.03-.01.23-.08.02-.01.24-.08.03-.01.23-.08.03-.01.24-.08.03-.01.23-.07.03-.01.24-.08.02-.01.24-.07.03-.01.24-.07.02-.01.23-.07.03-.01.23-.07.03-.01.23-.07.03-.01.24-.07.03-.01.24-.07.03-.01.24-.07.02-.01.24-.07.03-.01.23-.07.03-.01.24-.07.02-.01.23-.06.02-.01.24-.06.02-.01.23-.06h.02l.23-.06.03-.01.24-.06.03-.01.24-.06.03-.01.24-.06.03-.01.24-.06.02-.01.24-.06h.03l.24-.05.03-.01.24-.05.03-.01.24-.05.02-.01.24-.05.03-.01.24-.05h.03l.24-.05h.03l.24-.05.03-.01.24-.05h.03l.24-.05.03-.01.24-.04h.03l.24-.05h.03l.24-.04.02-.01.24-.04.02-.01.24-.04.03-.01.24-.04h.03l.24-.04.03-.01.24-.04h.03l.24-.04h.03l.24-.04.03-.01.24-.03h.03l.24-.04.03-.01.25-.04.03-.01.24-.04h.03l.24-.03h.03l.24-.03h.03l.24-.03h.03l.24-.03.03-.01.24-.03h.03l.24-.02h.03l.24-.03h.03l.24-.02h.03l.24-.03h.03l.25-.03h.03l.24-.02h.02l.24-.02h.03l.24-.02h.03l.25-.02h.03l.25-.02h.03l.25-.01h.02l.24-.02.03-.01.24-.02h.03l.24-.01h.03l.24-.01h.03l.24-.02h.03l.25-.01h.03l.24-.01h.03l.24-.01h.03l.25-.01h.02l.25-.01h.03l.24-.01h.29l.24-.01h.03l.24-.01h.84zm-.22 27l-.16.002h-1.282l-.16.01h-.48l-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.16.01-.158.01-.16.01-.16.01-.16.01-.158.01-.16.01-.16.02-.16.01-.16.02-.158.02-.158.02-.16.02-.158.02-.16.02-.158.02-.16.02-.157.02-.16.03-.16.03-.16.03-.16.02-.16.02-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.03-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.04-.16.05-.16.04-.15.04-.16.04-.16.05-.16.05-.16.05-.15.05-.16.05-.16.05-.15.05-.16.05-.16.05-.15.05-.16.05-.15.05-.15.06-.15.05-.15.05-.16.06-.15.05-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.06-.15.07-.15.07-.15.07-.15.06-.15.07-.15.07-.15.07-.15.07-.15.07-.15.08-.15.07-.15.07-.15.08-.15.08-.14.07-.15.08-.15.08-.15.07-.15.08-.15.08-.15.08-.15.08-.14.08-.15.08-.15.08-.15.08-.14.08-.14.08-.14.08-.15.09-95.95 57.56-.21.12-.19.11-.19.12-.19.11-.19.12-.19.12-.18.12-.19.12-.19.12-.18.12-.18.13-.18.12-.19.13-.18.13-.18.12-.18.12-.18.13-.18.12-.18.13-.18.12-.17.12-.18.13-.18.13-.18.13-.18.13-.18.13-.18.13-.17.13-.18.13-.17.13-.17.13-.17.14-.17.13-.17.14-.17.14-.17.13-.16.13-.17.14-.17.14-.17.13-.16.14-.16.14-.16.14-.16.14-.17.15-.17.14-.16.15-.16.15-.16.14-.16.14-.16.14-.16.15-.16.15-.16.15-.16.15-.15.15-.16.15-.16.15-.15.16-.15.15-.15.15-.16.15-.15.15-.15.16-.15.16-.15.16-.15.16-.15.16-.15.16-.15.16-.14.16-.15.16-.14.16-.15.16-.15.16-.14.16-.14.16-.14.16-.14.16-.14.16-.13.16-.14.16-.14.16-.14.16-.13.17-.14.17-.13.17-.13.16-.13.17-.13.17-.13.16-.14.17-.13.17-.13.17-.13.17-.13.17-.13.17-.12.17-.13.17-.13.17-.12.17-.13.17-.13.17-.12.17-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.18-.12.17-.12.18-.12.18-.11.18-.12.18-.11.18-.11.18-.12.19-.11.18-.11.18-.11.19-.11.18-.11.19-.11.18-.11.18-.11.19-.1.19-.1.18-.1.19-.11.18-.1.19-.1.18-.1.18-.11.2-.09.18-.1.19-.1.2-.1.19-.1.19-.09.19-.1.19-.09.19-.09.19-.09.19-.09.2-.09.19-.09.19-.09.2-.09.19-.09.19-.08.19-.08.19-.09.2-.09.2-.08.2-.08.2-.09.19-.08.2-.08.2-.08.2-.08.2-.08.2-.08.2-.07.2-.08.2-.08.2-.07.2-.08.2-.07.2-.08.21-.07.2-.07.21-.07.2-.07.2-.06.2-.07.2-.07.2-.06.2-.06.21-.07.21-.06.2-.07.2-.06.21-.06.21-.06.2-.06.21-.06.21-.06.2-.05.21-.06.21-.05.21-.06.21-.06.21-.05.2-.06.21-.05.21-.05.21-.05.21-.05.21-.05.21-.05.21-.05.21-.04.21-.04.21-.04.21-.05.22-.04.22-.04.21-.04.21-.04.21-.04.22-.04.21-.03.21-.03.22-.04.22-.03.21-.04.21-.03.21-.03.21-.03.22-.03.22-.03.21-.03.22-.02.21-.02.21-.02.22-.03.21-.03.21-.03.22-.02.22-.02.21-.02.21-.02.22-.02.22-.02.21-.02.22-.02.22-.02.22-.02.22-.01.22-.01.22-.01.21-.02.22-.01.22-.01.22-.01.22-.01.22-.01.22-.01.22v.22l-.01.22v121.1l.01.18v.18l.01.17.01.17.01.18v.34l.01.18v.18l.01.17.01.18.01.17.01.17.02.18.01.18.02.17.01.17.02.17.01.17.02.17.02.17.02.17.02.17.02.17.02.17.02.17.02.18.02.17.03.17.03.17.02.17.03.17.03.18.03.18.03.17.02.17.03.17.03.17.03.17.03.17.03.18.03.16.03.17.04.17.04.17.04.17.04.17.04.17.03.17.04.16.04.17.04.17.04.16.04.17.04.17.04.17.05.16.04.16.04.17.05.17.05.16.05.17.04.16.05.16.05.17.05.17.05.16.05.16.05.17.05.17.05.17.05.16.05.16.05.16.05.17.05.17.05.16.06.16.06.16.06.16.06.16.06.16.06.16.06.17.06.17.06.16.06.16.07.16.06.16.07.16.06.16.06.16.07.16.07.16.07.16.06.16.07.15.07.15.07.16.08.15.07.15.07.15.07.16.07.15.08.15.08.16.07.15.07.16.07.15.08.15.08.16.08.15.08.15.08.15.08.15.08.16.08.15.08.15.08.15.08.15.08.15.09.15.09.15.08.14.09.15.09.15.09.15.09.14.08.15.09.15.09.15.09.14.09.15.09.14.09.15.09.14.1.14.09.14.1.14.1.14.09.14.09.14.1.14.1.15.1.14.1.14.1.14.1.14.1.14.1.14.1.14.1.14.1.14.1.14.1.13.11.14.1.14.1.14.11.13.1.14.1.14.11.13.11.13.11.13.1.13.11.13.11.13.11.13.11.13.11.14.11.13.11.13.11.13.12.13.11.13.11.13.12.13.12.13.12.13.12.13.11.13.12.12.12.13.12.13.12.12.12.13.12.12.12.12.12.12.13.12.12.12.12.12.13.12.12.12.12.12.13.12.13.12.13.12.13.12.13.11.13.12.13.12.12.11.13.12.13.11.13.11.13.11.13.11.13.11.14.11.13.12.13.11.13.11.13.11.14.11.14.11.14.11.14.11.14.11.14.11.13.11.14.1.14.1.14.1.14.1.14.11.15.11.14.1.14.11.14.1.14.1.15.1.14.11.15.1.15.1.15.1.15.09.15.1.15.1.14.1.15.09.14.09.15.09.15.1.15.09.15.09.16.09.15.09.15.09.15.09.15.1.17.1 104.7 61.19.12.07.12.07.11.07.12.06.12.07.12.07.12.06.11.06.11.06.12.06.12.06.12.06.11.06.12.06.12.06.12.06.12.06.12.06.12.05.12.05.12.05.12.05.12.06.12.05.12.05.12.06.12.06.12.05.12.06.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.05.12.04.12.04.12.05.12.05.12.05.12.05.12.05.12.04.12.04.12.04.13.04.11.03.26.09.25.08.25.07.24.08.25.07.25.07.25.07.25.06.25.06.25.06.25.06.26.05.25.05.26.05.26.05.25.05.26.04.26.05.26.05.26.04.26.04.25.04.25.04.26.03.26.03.26.03.26.03.26.02.25.02.26.02.25.02.26.01.26.01.26.01.25.01.26.01.26.01h.25l.26.01h1.03l.26-.01.25-.01.26-.02.25-.02.26-.01.25-.02.26-.02.26-.02.25-.03.25-.03.26-.03.26-.03.25-.03.26-.04.26-.04.26-.04.25-.04.26-.04.26-.05.25-.05.25-.05.26-.05.25-.06.25-.06.25-.06.25-.06.25-.06.25-.07.25-.06.25-.07.25-.07.24-.08.27-.08.11-.03.13-.04.12-.04.12-.04.12-.04.12-.04.12-.04.12-.04.13-.04.12-.04.13-.05.13-.04.12-.04.12-.04.13-.04.12-.05.12-.04.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.05.12-.06.12-.06.12-.05.12-.06.12-.06.12-.06.12-.06.12-.06.12-.06.11-.06.12-.06.12-.06.12-.06.12-.06.12-.06.12-.06.12-.07.11-.06.13-.07 116-64.44.13-.08.12-.07.12-.07.12-.07.13-.07.12-.07.12-.07.13-.07.12-.08.12-.07.12-.08.11-.07.12-.07.12-.07.12-.07.12-.07.11-.07.11-.07.11-.07.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.08.11-.09.11-.08.11-.08.11-.09.1-.08.11-.09.11-.08.11-.09.11-.09.11-.08.1-.09.1-.09.1-.09.1-.09.11-.09.1-.09.1-.09.11-.09.1-.09.1-.1.1-.1.1-.09.1-.09.1-.09.1-.09.1-.09.1-.09.1-.09.1-.09.1-.1.1-.09.1-.09.1-.1.09-.09.09-.1.1-.1.1-.1.1-.1.1-.09.09-.1.1-.1.09-.1.09-.1.09-.1.09-.1.09-.1.1-.1.09-.1.09-.1.09-.1.09-.11.09-.1.08-.1.09-.11.09-.11.09-.1.09-.1.08-.11.08-.1.09-.11.08-.11.08-.1.08-.11.09-.11.08-.11.09-.11.09-.1.08-.11.08-.1.08-.11.08-.12.08-.1.08-.11.08-.11.07-.11.08-.11.08-.11.08-.11.07-.11.07-.11.08-.11.08-.11.08-.12.07-.11.07-.12.07-.11.07-.11.07-.12.07-.11.07-.12.07-.12.07-.11.07-.11.07-.11.07-.11.07-.12.07-.12.07-.12.07-.12.07-.12.07-.12.06-.12.07-.12.07-.12.07-.12.07-.12.06-.12.06-.12.06-.12.06-.12.07-.12.06-.13.07-.13.06-.13.06-.12.06-.12.06-.12.05-.12.06-.12.05-.12.05-.12.06-.12.05-.12.06-.12.06-.13.06-.13.05-.12.06-.13.05-.13.05-.13.05-.12.05-.13.05-.13.05-.12.05-.13.05-.13.05-.13.05-.12.05-.13.05-.13.04-.13.05-.13.04-.13.04-.13.04-.13.05-.13.04-.13.04-.13.04-.13.04-.13.04-.13.04-.13.04-.13.04-.13.04-.13.04-.14.03-.13.04-.13.04-.13.03-.13.04-.13.04-.14.04-.14.03-.13.03-.13.03-.14.03-.13.03-.13.03-.14.03-.13.03-.14.03-.13.03-.13.03-.13.02-.14.03-.14.02-.13.03-.138.03-.13.03-.14.03-.13.03-.13.02-.13.03-.14.02-.14.02-.13.02-.14.02-.14.02-.14.02-.14.02-.14.02-.14.02-.14.01-.14.02-.14.02-.14.02-.14.01-.14.01-.14.01-.14.02-.14.01-.14.01-.13.01-.14.01-.14.01-.14.01-.15.01-.14.01-.13.01-.14v-.2l.01-.14.01-.14.01-.14.01-.14.01-.14v-.3l.01-.14V137.1l-.01-.13v-.51l-.01-.126v-.135l-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.01-.13-.02-.13-.02-.13-.01-.13-.02-.13-.02-.13-.02-.13-.02-.13-.02-.12-.01-.12-.02-.13-.02-.13-.02-.12-.02-.12-.02-.13-.02-.13-.02-.13-.02-.13-.02-.13-.02-.11-.05-.26-.05-.24-.05-.25-.06-.25-.06-.25-.06-.25-.06-.24-.06-.25-.06-.24-.06-.24-.06-.24-.07-.25-.07-.24-.07-.24-.07-.24-.07-.24-.08-.23-.08-.24-.08-.24-.09-.23-.09-.23-.09-.23-.09-.23-.09-.23-.1-.24-.1-.23-.1-.23-.1-.23-.1-.22-.1-.23-.11-.23-.1-.23-.11-.23-.11-.23-.11-.22-.12-.23-.12-.22-.12-.22-.12-.22-.12-.22-.12-.22-.13-.22-.13-.21-.13-.21-.13-.21-.13-.22-.14-.21-.13-.21-.14-.21-.13-.21-.14-.21-.14-.2-.15-.21-.14-.2-.15-.2-.15-.2-.15-.2-.15-.2-.15-.2-.16-.19-.16-.2-.16-.2-.15-.19-.16-.19-.16-.2-.16-.19-.16-.19-.17-.19-.17-.19-.17-.18-.17-.18-.18-.18-.18-.18-.18-.18-.18-.17-.18-.17-.19-.18-.18-.17-.18-.17-.19-.17-.19-.17-.19-.16-.19-.16-.21-.17-.09-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.08-.1-.07-.1-.08-.1-.07-.09-.08-.1-.08-.1-.08-.1-.08-.1-.07-.11-.08-.11-.08-.1-.07-.1-.07-.1-.08-.11-.07-.1-.07-.1-.08-.1-.07-.1-.07-.11-.07-.1-.07-.1-.07-.11-.07-.11-.06-.11-.07-.11-.07-.11-.07-.1-.06-.11-.07-.11-.07-.11-.07-.11-.06-.11-.07-.12-.07-.11-.06-.12-.08L1340 46.05l-.154-.09-.14-.08-.144-.08-.145-.08-.145-.07-.145-.08-.148-.077-.15-.08-.15-.077-.15-.08-.15-.075-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.07-.15-.06-.15-.07-.15-.07-.15-.07-.15-.06-.15-.06-.15-.07-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.15-.06-.16-.06-.15-.06-.15-.05-.15-.05-.16-.06-.16-.06-.16-.05-.15-.06-.16-.05-.15-.05-.15-.05-.15-.05-.16-.05-.15-.05-.16-.05-.15-.05-.16-.05-.15-.04-.15-.05-.15-.04-.16-.04-.16-.04-.16-.05-.16-.04-.15-.04-.15-.04-.16-.05-.16-.04-.16-.04-.16-.04-.15-.04-.16-.04-.15-.04-.16-.04-.16-.03-.16-.04-.15-.04-.16-.03-.16-.04-.15-.03-.15-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.03-.16-.02-.16-.02-.16-.03-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.16-.02-.15-.02-.16-.01-.16-.02-.16-.02-.16-.02-.16-.02-.16-.01-.16-.01-.16-.02-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01-.16-.01h-.32l-.16-.01h-.8l-.16-.01h-.48z"/>
+  <path fill="#fff" fill-rule="nonzero" d="M1039.925 204.026c0 47.187-8.943 60.934-26.816 80.584-17.87 19.65-41.57 27.567-71.1 27.567-26.99 0-48.75-9.575-67.61-26.23-20.88-18.446-36.08-47.037-36.08-78.945 0-31.37 11.72-58.485 32.49-78.676 18.22-17.667 45.34-29.177 73.31-29.177 33.76 0 68.82 15.98 90.43 47.53l-31.73 26.82c-13.45-25.03-32.94-33.46-60.82-34.26-30.83-.88-64.77 28.53-62.25 67.75 1.4 21.94 11.65 59.65 60.96 66.57 25.91 3.63 55.36-24.02 55.36-39.04H947.4v-37.5h92.508V204z"/>
+  <path fill="#fff" d="M1323.723 99.15c58.784 0 106.52 47.728 106.52 106.514 0 58.787-47.736 106.514-106.52 106.514-58.783 0-106.52-47.727-106.52-106.514 0-58.786 47.737-106.514 106.52-106.514zm0 39.572c36.946 0 66.936 29.996 66.936 66.942s-29.99 66.94-66.94 66.94-66.94-29.994-66.94-66.94 29.99-66.942 66.93-66.942z"/>
+</svg>
+
+          </div>
+          <p class="f6 gray tc w-70 center">The Hugo logos are copyright © Steve Francia 2013–2017.</p>
+          <p class="f6 gray tc w-70 center">The Hugo Gopher is based on an original work by Renée French.</p>
+          
+      </div>
+
+      <div class="w-third pv3 dn db-l">
+        <ul class="list ma0 pa0 w-50 center">
+          <li><a href="" class="link white dim pv2 db">File an Issue</a></li>
+          <li><a href="https://discourse.gohugo.io/" class="link white dim pv2 db">Get Help</a></li>
+          <li><a href="https://gitter.im/spf13/hugo" class="link white dim pv2 db">Discuss the Source Code</a></li>
+        </ul>
+      </div>
+
+      <div class="w-third pv3 dn db-l">
+        <ul class="list ma0 pa0">
+            <li><a href="https://twitter.com/gohugoio" class="link white dim pv2 db">@GoHugoIO</a></li>
+          <li><a href="https://twitter.com/spf13" class="link white dim pv2 db">@spf13</a></li>
+          <li><a href="https://twitter.com/bepsays" class="link white dim pv2 db">@bepsays</a></li>
+        </ul>
+      </div>
+    </div>
+
+
+    <div  class="globalmenu mobilemenu pb3 dn">
+    
+
+<ul class="list hidden dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/news/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          News
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/documentation/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Docs
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://themes.gohugo.io/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Themes
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://discourse.gohugo.io/" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          Community
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="https://github.com/circleci/ccidemo" class="ttu f6 link primary-color-light overflow hover-white db brand-font  ma0 w-100 pv3 ph4">
+          GitHub
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+<div  class="docsmenu mobilemenu pb3 dn">
+    
+
+<ul class="list dib ph0 ma0 scrolling-touch tc">
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/about/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          About Hugo
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/getting-started/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Getting Started
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/themes/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Themes
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/content-management/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Content Management
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/templates/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Templates
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/functions/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Functions
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/variables/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Variables
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/commands/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          CLI
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/troubleshooting/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Troubleshooting
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/tools/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Tools
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100">
+        <a href="/hosting-and-deployment/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Hosting &amp; Deployment
+        </a>
+    </li>
+  
+    <li  class="tl dib ma0 hover-bg-black w-100 mb2 bb b--mid-gray">
+        <a href="/contribute/" class="ttu f6 link primary-color-light  hover-white db brand-font mb1  ma0 w-100 pv2 ph4">
+          Contribute
+        </a>
+    </li>
+  
+</ul>
+
+</div>
+
+<div class="flex dn-l">
+  <button class="js-toggle flex-auto ml2 dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".globalmenu">Menu</button>
+
+  <button class="js-toggle flex-auto ml2 dib dn-l f6 tc db mt4-ns ph3 pv2 link white bg-primary-color-dark hover-bg-primary-color ba b--white-40 w-auto" data-target=".docsmenu">Docs Menu</button>
+</div>
+
+
+</footer>
+
+    <script src="https://gohugo.io/dist/app.bundle.js"></script>
+
+
+  </body>
+</html>
